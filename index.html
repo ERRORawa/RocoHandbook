@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <title>洛克图鉴</title>
+    <link rel="stylesheet" href="font-awesome-4/css/font-awesome.min.css" fetchpriority="high">
+    <link rel="stylesheet" href="style.css?1786966526125">
+</head>
+
+<body>
+    <app>
+        <div id="loading">
+            <p class="loadText">加载中<span>&#xf110;</span></p>
+            <div class="loadFailed">
+                <p>加载失败，清除缓存试试？</p>
+                <button onclick="clearCache()">清除缓存</button>
+            </div>
+        </div>
+        <div id="alertPanel" class="panel">
+            <div class="box">
+                <div class="title">
+                    <h3 class="text"></h3>
+                    <div class="closeBtn" data="alertPanel">
+                        <div class="x">
+                            <div class="xLeft"></div>
+                            <div class="xRight"></div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="content">
+                    <p class="text"></p>
+                    <p class="tip"></p>
+                </div>
+            </div>
+            <div class="alertBtns">
+                <button class="local">左按键</button>
+                <button class="cloud">右按键</button>
+            </div>
+        </div>
+        <div id="dataPanel" class="panel">
+            <div class="box">
+                <h3 class="title">数据管理
+                    <div class="closeBtn" data="dataPanel">
+                        <div class="x">
+                            <div class="xLeft"></div>
+                            <div class="xRight"></div>
+                        </div>
+                    </div>
+                </h3>
+                <hr>
+                <div class="dataContent">
+                    <div class="userInfo">
+                        <p>云存档</p>
+                        <div class="content">
+                            <p class="userName">用户名：<span class="name">未登录</span></p>
+                            <p class="syncLabel">云同步：<span class="sync">同步中</span></p>
+                            <div class="login">
+                                <p class="waitLogin">请在弹出的登录窗口中完成认证</p>
+                                <div class="enterKey">
+                                    <input type="password" placeholder="输入私人令牌">
+                                    <button>确认</button>
+                                </div>
+                                <button class="loginBtn">使用 Gitee 登录</button>
+                                <div class="loginWay">
+                                    <button class="oauth">使用OAuth登录</button>
+                                    <button class="inputKey">使用私人令牌登录</button>
+                                </div>
+                            </div>
+                            <button class="logout">退出登录</button>
+                        </div>
+                    </div>
+                    <div class="dataManage">
+                        <p>存档操作</p>
+                        <div class="content">
+                            <button class="clearData">清除数据</button>
+                            <button class="saveData">导出数据</button>
+                            <button class="loadData">导入数据</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="loginTip">使用OAuth登录的只能维持24小时，需要长期使用请选择私人令牌！</div>
+            </div>
+        </div>
+        <div id="itemPanel" class="panel">
+            <div class="box">
+                <h3 class="title">收集统计
+                    <div class="closeBtn" data="itemPanel">
+                        <div class="x">
+                            <div class="xLeft"></div>
+                            <div class="xRight"></div>
+                        </div>
+                    </div>
+                </h3>
+                <hr>
+                <div class="content">
+                    <div class="item">
+                        <preset>
+                            <img src="handbook/texture/item/exp.png">
+                            <p>魔法经验：</p>
+                        </preset>
+                        <span class="exp">0/0</span>
+                    </div>
+                    <div class="item">
+                        <preset>
+                            <img src="handbook/texture/item/crystal.png">
+                            <p>分光水晶：</p>
+                        </preset>
+                        <span class="crystal">0/0</span>
+                    </div>
+                    <div class="item">
+                        <preset>
+                            <img src="handbook/texture/item/star.png">
+                            <p>许愿星：</p>
+                        </preset>
+                        <span class="star">0/0</span>
+                    </div>
+                    <div class="item">
+                        <preset>
+                            <img src="handbook/texture/item/soul.png">
+                            <p>灵魂环印：</p>
+                        </preset>
+                        <span class="soul">0/0</span>
+                    </div>
+                    <div class="item">
+                        <preset>
+                            <img src="fruits/0340.png">
+                            <p>精灵果实：</p>
+                        </preset>
+                        <span class="fruit">0/0</span>
+                    </div>
+                    <div class="item">
+                        <preset>
+                            <img src="handbook/texture/item/stone/光.png">
+                            <p>技能石：</p>
+                        </preset>
+                        <span class="skill">0/0</span>
+                    </div>
+                    <div class="item">
+                        <preset>
+                            <img src="handbook/texture/item/recipe/光.png">
+                            <p>技能书：</p>
+                        </preset>
+                        <span class="skill">0/0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="filterPanel" class="panel">
+            <div class="box">
+                <h3 class="title">筛选规则
+                    <div class="closeBtn" data="filterPanel">
+                        <div class="x">
+                            <div class="xLeft"></div>
+                            <div class="xRight"></div>
+                        </div>
+                    </div>
+                </h3>
+                <hr>
+                <div class="filterContent">
+                    <div class="filterClass">
+                        <div class="title">
+                            <p>课题</p>
+                            <div>
+                                <p>仅显示未完成</p>
+                                <input class="onlyIncomplete" type="checkbox">
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div data="1">捕捉1只精灵</div>
+                            <div data="2">捕捉1只了不起天分的精灵</div>
+                            <div data="3">使精灵成功进化1次</div>
+                            <div data="4">使精灵的亲密度等级达到5级</div>
+                            <div data="5">捕捉20只精灵</div>
+                            <div data="6">捕捉1只炫彩突变的精灵</div>
+                            <div data="7">捕捉1只异色突变的精灵</div>
+                            <div data="8">确认N种不同样子的精灵</div>
+                            <div data="9">使用进化之力，将精灵进化为首领</div>
+                            <div data="10">获得「命定勇者」奖牌</div>
+                            <div data="11">使用N次技能</div>
+                        </div>
+                    </div>
+                    <div class="rightFilter">
+                        <div class="filterTypes">
+                            <p>系别</p>
+                            <div class="content">
+                                <div><img src="typeIcon/普通.png"><span>普通</span></div>
+                                <div><img src="typeIcon/草.png"><span>草</span></div>
+                                <div><img src="typeIcon/火.png"><span>火</span></div>
+                                <div><img src="typeIcon/水.png"><span>水</span></div>
+                                <div><img src="typeIcon/光.png"><span>光</span></div>
+                                <div><img src="typeIcon/地.png"><span>地</span></div>
+                                <div><img src="typeIcon/冰.png"><span>冰</span></div>
+                                <div><img src="typeIcon/龙.png"><span>龙</span></div>
+                                <div><img src="typeIcon/电.png"><span>电</span></div>
+                                <div><img src="typeIcon/毒.png"><span>毒</span></div>
+                                <div><img src="typeIcon/虫.png"><span>虫</span></div>
+                                <div><img src="typeIcon/武.png"><span>武</span></div>
+                                <div><img src="typeIcon/翼.png"><span>翼</span></div>
+                                <div><img src="typeIcon/萌.png"><span>萌</span></div>
+                                <div><img src="typeIcon/幽.png"><span>幽</span></div>
+                                <div><img src="typeIcon/恶.png"><span>恶</span></div>
+                                <div><img src="typeIcon/机械.png"><span>机械</span></div>
+                                <div><img src="typeIcon/幻.png"><span>幻</span></div>
+                            </div>
+                        </div>
+                        <div class="filterBook">
+                            <p>地区<span class="bookName">世界</span></p>
+                            <div class="content">
+                                <div class="selectBook">
+                                    <div data="0" class="book">
+                                        <img src="handbook/book/0.png">
+                                        <p>世界</p>
+                                    </div>
+                                    <div data="1" class="book">
+                                        <img src="handbook/book/1.png">
+                                        <p>风眠省</p>
+                                    </div>
+                                    <div data="2" class="book">
+                                        <img src="handbook/book/2.png">
+                                        <p>洛克里安</p>
+                                    </div>
+                                </div>
+                                <img data="0" class="nowBook" src="handbook/book/0.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="alertBtns">
+                <button class="reset">重置</button>
+                <button class="save">确认</button>
+            </div>
+        </div>
+        <div class="sideBar">
+            <p class="classProgress">进度 <span>0/0</span></p>
+            <div class="searchShadow"></div>
+            <input type="text" class="search" placeholder="搜索…">
+            <div class="petList">
+            </div>
+            <div class="otherFunc">
+                <button class="filterBtn">&#xf0b0;</button>
+                <button class="dataManager">数据管理</button>
+                <button class="fullscreen">翻转横屏</button>
+            </div>
+            <div class="filterPetsCount">筛选出<span></span>只精灵</div>
+        </div>
+        <p class="pointProgress"><img src="handbook/texture/item/point.png"><span>0/0</span></p>
+        <div class="petClass">
+            <div class="petInfo">
+                <button class="checkAll">全部完成</button>
+                <div class="type typeFirst"><img src=""><span></span></div>
+                <div class="type typeSecond"><img src=""><span></span></div>
+                <div class="type className">
+                    <span></span>
+                    <div class="moreInfo">&#xf129</div>
+                    <div class="infoPanel"></div>
+                </div>
+            </div>
+            <div class="classBox">
+                <div class="backBG">
+                    <div class="backImg"></div>
+                </div>
+                <div class="classContent"></div>
+            </div>
+            <div class="otherFunc">
+                <div class="hideFinish">
+                    <p>隐藏已完成</p>
+                    <input type="checkbox">
+                </div>
+                <div class="noNetwork" style="display: none">
+                    <p>当前为离线模式</p>
+                </div>
+            </div>
+        </div>
+    </app>
+    <script src="script/script.js?1786966526125"></script>
+    <note>
+        <!-- 课题&形态数据：NRC/Content/ScriptC/Data/Bin/*/PET_HANDBOOK.json -->
+        <!-- 背景数据：NRC/Content/ScriptC/Data/Bin/*/PETBASE_CONF.json -->
+        <!-- 属性数据：NRC/Content/ScriptC/Data/Bin/*/TYPE_DICTIONARY.json -->
+        <!-- 头像1：NRC/Content/NewRoco/Modules/System/Common/Icon/HeadIcon/* -->
+        <!-- 头像2：NRC/Content/NewRoco/Modules/System/Common/Icon/BigHeadIcon/* -->
+        <!-- 立绘1：NRC/Content/NewRoco/Modules/System/Common/Icon/Pet256/* -->
+        <!-- 立绘2：NRC/Content/NewRoco/Modules/System/Common/Icon/Pet1024/* -->
+        <!-- 果实：NRC/Content/NewRoco/Modules/System/Common/Icon/BagItem/* -->
+        <!-- 元素图标：NRC/Content/NewRoco/Modules/System/Common/Icon/Species/Textures/Species.png -->
+        <!-- 图鉴书：NRC/Content/NewRoco/Modules/System/Handbook/Raw/Bg/Textures/Bg.png -->
+        <!-- 部分素材：NRC/Content/NewRoco/Modules/System/Handbook/Raw/Common/Images/Textures/Common.png -->
+        <!-- 课题奖励：NRC/Content/NewRoco/Modules/System/Common/Icon/BagItem/* -->
+        <!-- 精灵列表背景：NRC/Content/NewRoco/Modules/System/Handbook/Raw/Common/Images/Textures/Img_TapBg.png -->
+        <!-- 精灵背景：NRC/Content/NewRoco/Modules/System/Handbook/Raw/Common/Quiet/Textures/* -->
+    </note>
+</body>
+
+</html>

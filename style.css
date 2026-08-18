@@ -1,0 +1,1611 @@
+html,
+body {
+    position: relative;
+    background-color: #E7E1D1;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+app,
+input[type=text] {
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+}
+
+app {
+    height: 100%;
+    width: 100%;
+}
+
+body.rotate {
+    transform: rotate(90deg);
+    transform-origin: left top;
+}
+
+*::-webkit-scrollbar {
+    width: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #918973;
+    border-radius: 30px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #7c7563;
+}
+
+button {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#dataPanel .box .dataContent button,
+.sideBar .otherFunc button,
+.petClass .petInfo .type.className .infoPanel .infoContent .diffInfo,
+#loading .loadFailed button {
+    transition: background-color.2s;
+    background-color: #fff8e6;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    box-shadow: 0 1px 2px black;
+    height: 30px;
+}
+
+#dataPanel .box .dataContent button:hover,
+.sideBar .otherFunc button:hover,
+.petClass .petInfo .type.className .infoPanel .infoContent .diffInfo:hover,
+#loading .loadFailed button:hover {
+    background-color: #e5decd;
+}
+
+#loading {
+    font-family: "FontAwesome";
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #E7E1D1;
+    z-index: 20;
+}
+
+#loading p.loadText {
+    font-size: 45px;
+    font-weight: normal;
+    animation: showLoading 2s;
+}
+
+#loading .loadFailed {
+    display: none;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+#loading .loadFailed.show {
+    display: flex;
+    flex-direction: column;
+}
+
+#loading p span { 
+    display: inline-block;
+    animation: loading 1.5s linear infinite;
+}
+
+#loading.hide:not([class*="willRotate"]) {
+    display: none; 
+    animation: loaded.5s;
+}
+
+#loading.hide p {
+    animation: loadedText.5s;
+}
+
+#loading.hide.willRotate p {
+    animation: loadedTextRotate.5s;
+}
+
+.panel {
+    transition: background-color.3s;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: #00000000;
+}
+
+.panel.show {
+    display: flex;
+    background-color: #00000070;
+    animation: showShadow.3s;
+}
+
+.panel.close {
+    display: flex;
+}
+
+.panel .box {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 450px;
+    border-radius: 8px;
+    background-color: #fff9e9;
+    padding-bottom: 10px;
+    overflow: auto;
+}
+
+.panel.show .box {
+    animation: showAlert.4s;
+}
+
+.panel.close .box {
+    transition: scale.3s, opacity.2s;
+    scale: 1.05;
+    opacity: 0;
+}
+
+.panel .box > .title {
+    position: sticky;
+    text-align: center;
+    display: block;
+    background-color: #242321;
+    color: white;
+    z-index: 1;
+    top: 5px;
+    margin: 5px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 6px;
+}
+
+.panel .box > .title .closeBtn {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    right: 10px;
+    top: 8px;
+    cursor: pointer;
+}
+
+.panel .box > .title .closeBtn .x {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    right: -9px;
+    pointer-events: none;
+}
+
+.panel .box > .title .closeBtn .x .xLeft,
+.panel .box > .title .closeBtn .x .xRight {
+    position: absolute;
+    margin: auto;
+    width: 7px;
+    height: 100%;
+    border-radius: 2px;
+    background-color: white;
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+.panel .box > .title .closeBtn .x .xRight {
+    margin: auto;
+    width: 7px;
+    height: 100%;
+    background-color: white;
+    transform: rotate(-45deg);
+}
+
+.panel .box hr {
+    position: sticky;
+    z-index: 1;
+    top: 48px;
+    width: 585px;
+    margin-top: -2px;
+    border-radius: 5px;
+    border: 2px solid #242321;
+}
+
+#alertPanel {
+    z-index: 30;
+}
+
+#alertPanel .box {
+    height: auto;
+    min-height: 150px;
+}
+
+#alertPanel .box .title .text {
+    margin: 0;
+}
+
+#alertPanel .box .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#alertPanel .box .content p {
+    text-align: center;
+}
+
+#alertPanel .box .content .text {
+    font-size: 20px;
+}
+
+#alertPanel .box .content .tip {
+    color: #00000088;
+    font-size: 18px;
+    margin-top: 0px;
+}
+
+#alertPanel:not(.showBtn) .alertBtns button {
+    display: none;
+}
+
+#dataPanel {
+    z-index: 16;
+}
+
+#dataPanel .box {
+    position: relative;
+    height: 300px;
+    width: 550px;
+}
+
+#dataPanel .box hr {
+    width: 535px;
+}
+
+#dataPanel .box .dataContent {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+#dataPanel .box .dataContent .userInfo {
+    width: 275px;
+    border-right: 1px dotted gray;
+}
+
+#dataPanel .box .dataContent .userInfo > p {
+    padding-left: 20px;
+}
+
+#dataPanel .box .dataContent .userInfo .content p {
+    margin-top: 0;
+}
+
+#dataPanel .box .dataContent .userInfo .content input {
+    transition: background-color.2s;
+    width: 150px;
+    padding: 7px;
+    padding-left: 15px;
+    border-radius: 50px;
+    border: none;
+    background-color: #e1dbc9;
+}
+
+#dataPanel .box .dataContent .userInfo .content input:not(:focus):hover {
+    background-color: #d3cdbb;
+}
+
+#dataPanel .box .dataContent .userInfo .content .syncLabel span {
+    color: #867010;
+}
+
+#dataPanel .box .dataContent .userInfo .content .login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dataPanel .box .dataContent .userInfo .content .login .loginWay {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70px;
+}
+
+#dataPanel .box:not(.logged) .dataContent .userInfo .content .syncLabel,
+#dataPanel .box.logging .dataContent .userInfo .content .login,
+#dataPanel .box.logged .dataContent .userInfo .content .login,
+#dataPanel .box:not(.waitLogin) .dataContent .userInfo .content .login .waitLogin,
+#dataPanel .box:not(.enterKey) .dataContent .userInfo .content .login .enterKey,
+#dataPanel .box.waitLogin .dataContent .userInfo .content .login .loginBtn,
+#dataPanel .box.enterKey .dataContent .userInfo .content .login .loginBtn,
+#dataPanel .box.loginWay .dataContent .userInfo .content .login .loginBtn,
+#dataPanel .box:not(.loginWay) .dataContent .userInfo .content .login .loginWay,
+#dataPanel .box:not(.logged) .dataContent .userInfo .content .logout {
+    display: none
+}
+
+#dataPanel .box .dataContent .dataManage {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#dataPanel .box .dataContent .dataManage > p {
+    padding-left: 20px;
+}
+
+#dataPanel .box .dataContent .userInfo .content,
+#dataPanel .box .dataContent .dataManage .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+}
+
+#dataPanel .box .dataContent .dataManage .content button {
+    margin-bottom: 20px;
+    padding: 20px 30px;
+    line-height: 0px;
+    font-size: 16px;
+}
+
+#dataPanel .box .dataContent .dataManage .content .clearData {
+    color: #d20d0d;
+}
+
+#dataPanel .box .loginTip {
+    transition: color.1s;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #00000000;
+}
+
+#dataPanel .box.loginWay .loginTip {
+    color: #d44b4bbf;
+}
+
+#itemPanel {
+    z-index: 17;
+}
+
+#itemPanel .box .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#itemPanel .box .content .item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+#itemPanel .box .content .item preset {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 22%;
+    margin-left: 28%;
+}
+
+#itemPanel .box .content .item preset img {
+    height: 40px;
+}
+
+#filterPanel {
+    z-index: 15;
+}
+
+#filterPanel .box .filterContent {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+#filterPanel .box .filterContent .filterClass .content div:hover,
+#filterPanel .box .filterContent .rightFilter .filterTypes .content div:hover {
+    background-color: #c7c1ad;
+    cursor: pointer;
+}
+
+#filterPanel .box .filterContent .content div.select {
+    background-color: #ffb01e !important;
+}
+
+#filterPanel .box .filterContent .filterClass {
+    position: relative;
+    width: 290px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px dotted gray;
+}
+
+#filterPanel .box .filterContent .filterClass .title {
+    display: flex;
+    flex-direction: row;
+}
+
+#filterPanel .box .filterContent .filterClass .title p {
+    margin: 0 0 0 20px;
+}
+
+#filterPanel .box .filterContent .filterClass .title div {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+#filterPanel .box .filterContent .filterClass .title div input[type=checkbox],
+.petClass .otherFunc .hideFinish input[type=checkbox] {
+    transition: background-color.1s;
+    appearance: none;
+    position: relative;
+    margin: 0;
+    width: 45px;
+    height: 23px;
+    border-radius: 30px;
+    background-color: #242321;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#filterPanel .box .filterContent .filterClass .title div input[type=checkbox]:checked,
+.petClass .otherFunc .hideFinish input[type=checkbox]:checked {
+    background-color: #09b309;
+}
+
+#filterPanel .box .filterContent .filterClass .title div input[type=checkbox]::after,
+.petClass .otherFunc .hideFinish input[type=checkbox]::after {
+    transition: left.1s, background-color.2s;
+    content: "";
+    height: 23px;
+    width: 23px;
+    background-color: #fff9e9;
+    position: absolute;
+    border-radius: 30px;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 3px gray;
+}
+
+#filterPanel .box .filterContent .filterClass .title div input[type=checkbox]:hover::after,
+.petClass .otherFunc .hideFinish input[type=checkbox]:hover::after {
+    background-color: #eae3d0;
+}
+
+#filterPanel .box .filterContent .filterClass .title div input[type=checkbox]:checked::after,
+.petClass .otherFunc .hideFinish input[type=checkbox]:checked::after {
+    left: 22px;
+}
+
+#filterPanel .box .filterContent .filterClass .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+#filterPanel .box .filterContent .filterClass .content div {
+    transition: background-color.1s;
+    background-color: #e1dbc9;
+    margin: 0 20px;
+    height: 27px;
+    line-height: 27px;
+    border-radius: 30px;
+}
+
+#filterPanel .box .filterContent .rightFilter {
+    display: flex;
+    flex-direction: column;
+}
+
+#filterPanel .box .filterContent .rightFilter p {
+    margin: 0 0 0 5px;
+}
+
+#filterPanel .box .filterContent .rightFilter .filterTypes {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted gray;
+    padding-left: 20px;
+}
+
+#filterPanel .box .filterContent .rightFilter .filterTypes .content {
+    flex: 1;
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+#filterPanel .box .filterContent .rightFilter .filterTypes .content div {
+    transition: background-color.1s;
+    background-color: #e1dbc9;
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px 5px;
+    height: 27px;
+    width: 70px;
+    border-radius: 30px;
+}
+
+#filterPanel .box .filterContent .rightFilter .filterTypes .content div img {
+    height: 27px;
+    pointer-events: none;
+}
+
+#filterPanel .box .filterContent .rightFilter .filterTypes .content div span {
+    display: inline-block;
+    position: relative;
+    height: 27px;
+    line-height: 27px;
+    pointer-events: none;
+}
+
+#filterPanel .box .filterContent .rightFilter .filterBook {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+}
+
+#filterPanel .box .filterContent .rightFilter .filterBook .bookName {
+    display: inline-block;
+    width: 185px;
+    text-align: center;
+}
+
+#filterPanel .box .filterContent .rightFilter .filterBook .content {
+    position: relative;
+    padding-top: 5px;
+    text-align: center;
+}
+
+#filterPanel .box .filterContent .rightFilter .filterBook .content > img {
+    transition: height.5s, margin-top.5s;
+    margin-top: 5px;
+    height: 70px;
+    transform: rotate(-5deg);
+}
+
+#filterPanel .box .filterContent .rightFilter .filterBook .content img:hover,
+#filterPanel .box .filterContent .rightFilter .filterBook .content:has(.selectBook.show) > img  {
+    height: 80px;
+    margin-top: 0px;
+    animation: bookRotate 1.5s ease-in-out infinite;
+    cursor: pointer;
+}
+
+#filterPanel .box .filterContent .rightFilter .filterBook .content .selectBook {
+    transition: top.3s, left.4s, height.4s, width.25s;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #242321;
+    overflow: hidden;
+    border-radius: 30px;
+    top: 40px;
+    left: 150px;
+    width: 0px;
+    height: 0px;
+}
+
+#filterPanel .box .filterContent .rightFilter .filterBook .content .selectBook.show {
+    transition: top.25s, left.35s, height.35s, width.35s;
+    top: -170px;
+    left: -260px;
+    width: 510px;
+    height: 140px;
+}
+
+#filterPanel .box .filterContent .rightFilter .filterBook .content .selectBook .book.select {
+    background-color: transparent !important;
+}
+
+#filterPanel .box .filterContent .rightFilter .filterBook .content .selectBook .book img {
+    margin: 0 10px;
+    transform: rotate(-5deg);
+    height: 70px;
+    pointer-events: hover;
+}
+
+#filterPanel .box .filterContent .rightFilter .filterBook .content .selectBook .book.select img {
+    animation: bookRotate 1.5s ease-in-out infinite;
+}
+
+#filterPanel .box .filterContent .rightFilter .filterBook .content .selectBook .book p {
+    color: gray;
+}
+
+#filterPanel .box .filterContent .rightFilter .filterBook .content .selectBook .book.select p {
+    color: #fff9e9;
+}
+
+#alertPanel .alertBtns,
+#filterPanel .alertBtns {
+    display: flex;
+    justify-content: space-evenly;
+    width: 600px;
+    margin-top: 20px;
+}
+
+#alertPanel .alertBtns button,
+#filterPanel .alertBtns button {
+    transition: background-color.1s, scale.3s, filter.3s;
+    background-color: #fff8e6;
+    border: none;
+    border-radius: 18px;
+    padding: 5px;
+    box-shadow: 0 1px 2px black;
+    font-size: 17px;
+    width: 120px;
+    height: 40px;
+    scale: 1.1;
+    filter: opacity(0);
+}
+
+#alertPanel.show.showBtn .alertBtns button,
+#filterPanel.show .alertBtns button {
+    animation: showAlert.4s;
+    scale: 1;
+    filter: opacity(1);
+}
+
+#filterPanel .alertBtns button:hover {
+    background-color: #e5decd;
+}
+
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 6;
+    height: 100%;
+    border-right: 5px solid #918973;
+    background: url("handbook/texture/SideBar.png?1") right center no-repeat;
+    background-size: cover;
+}
+
+.sideBar .classProgress {
+    text-align: center;
+    top: -5px;
+    margin-bottom: 0;
+    margin-bottom: 10px;
+}
+
+.sideBar .search {
+    transition: background-color.2s;
+    position: relative;
+    z-index: 10;
+    width: 170px;
+    padding: 9px;
+    padding-left: 15px;
+    margin: 0px 0 5px 30px;
+    border-radius: 50px;
+    border: none;
+    background-color: #e1dbc9;
+}
+
+.sideBar .search:not(:focus):hover {
+    background-color: #d3cdbb;
+}
+
+.sideBar .searchShadow {
+    transition: background-color.3s;
+    position: fixed;
+    z-index: 9;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+}
+
+.sideBar:has(.search:focus) .searchShadow {
+    background-color: #00000070;
+    pointer-events: auto;
+}
+
+.sideBar .petList {
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex: 1;
+    width: 260px;
+    padding-top: 10px;
+    margin-right: 2px;
+}
+
+body.rotate .sideBar .petList {
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.sideBar .petList .petBox {
+    transition: height.3s, padding.3s, margin.3s, opacity.3s;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 3px 0;
+    padding-left: 45px;
+    left: -4px;
+    height: 60px;
+    width: 193px;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.sideBar .petList .petBox.hidden {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    padding-left: 45px;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.sideBar .petList .petBox .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sideBar .petList .petBox .info p {
+    white-space: nowrap;
+}
+
+.sideBar .petList .petBox .info .id {
+    margin-bottom: -3px;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+.sideBar .petList .petBox .info .name {
+    margin-top: -3px;
+}
+
+.sideBar .petList .petBox .avatarBox {
+    position: absolute;
+    margin-left: 144px;
+    margin-top: 10px;
+    height: 40px;
+    width: 40px;
+    background-color: #343434;
+    border-radius: 50px;
+}
+
+.sideBar .petList .petBox .avatarBox .avatar {
+    position: relative;
+    height: 65px;
+    left: -12px;
+    top: -14px;
+}
+
+.sideBar .petList .petBox .progress {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 100px;
+    white-space: nowrap;
+}
+
+.sideBar .petList .petBox .progress.finish {
+    color: #bf7910;
+}
+
+.sideBar .petList .petBox .selectBG {
+    background: url("handbook/texture/select.png") center no-repeat;
+    background-size: 98%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+
+.sideBar .petList .petBox.select .selectBG {
+    transform: scaleX(1);
+    animation: selectPet.2s;
+}
+
+.sideBar .otherFunc,
+.petClass .otherFunc {
+    transition: margin.3s;
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0 30px 35px;
+}
+
+.sideBar .otherFunc:has(.filterBtn.hasFilter) {
+    margin: 10px 0 10px 35px;
+}
+
+.sideBar .otherFunc .filterBtn.hasFilter {
+    background-color: #f8cb43;
+}
+
+.sideBar .otherFunc button {
+    margin-right: 10px;
+}
+
+.sideBar .otherFunc .filterBtn {
+    font-family: "FontAwesome";
+    width: 30px;
+    line-height: 23px;
+    font-size: 18px;
+    padding: 5px;
+    transform: scaleX(-1);
+}
+
+.sideBar .otherFunc .fullscreen {
+    padding: 5px 10px;
+}
+
+.sideBar .filterPetsCount {
+    transition: height.3s, margin.3s;
+    text-align: center;
+    overflow: hidden;
+    height: 0px;
+}
+
+.sideBar:has(.otherFunc .filterBtn.hasFilter) .filterPetsCount {
+    margin-bottom: 20px;
+    height: 20px;
+}
+
+.pointProgress {
+    transition: background-color.2s;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    background-color: #d5cebb;
+    top: -4px;
+    right: 40px;
+    padding: 0 10px 0 5px;
+    margin: 10px 0;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.pointProgress:hover {
+    background-color: #c4beac;
+}
+
+.pointProgress img {
+    height: 30px;
+}
+
+.petClass {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px 0px 10px;
+}
+
+.petClass .petInfo {
+    display: flex;
+    flex-direction: row;
+}
+
+.petClass .petInfo .checkAll {
+    transition: background-color.1s, opacity.2s;
+    margin: 10px;
+    margin-right: 0;
+    padding: 10px;
+    width: 120px;
+    height: 40px;
+    background-color: #f8cb43;
+    border: none;
+    border-radius: 20px;
+    font-size: 17px;
+    line-height: 17px;
+    box-shadow: 0 0 3px rgb(80, 63, 37);
+}
+
+.petClass .petInfo .checkAll:hover {
+    background-color: #deb53d;
+}
+
+.petClass.switch .petInfo .checkAll {
+    opacity: 0;
+}
+
+.petClass .petInfo .type {
+    transition: opacity.2s;
+    background-color: #d5cebb;
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px;
+    margin-right: 0;
+    height: 40px;
+    width: 100px;
+    border-radius: 30px;
+}
+
+.petClass.switch .petInfo .type {
+    opacity: 0;
+}
+
+.petClass .petInfo .type img {
+    height: 40px;
+    pointer-events: none;
+}
+
+.petClass .petInfo .type > span {
+    display: inline-block;
+    position: relative;
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    pointer-events: none;
+}
+
+.petClass .petInfo .type.className {
+    width: auto;
+    position: absolute;
+    right: 35px;
+    padding: 0 20px;
+    padding-right: 45px;
+}
+
+.petClass .petInfo .type.className:has(.moreInfo[class*="noInfo"]) {
+    padding-right: 20px;
+}
+
+.petClass .petInfo .type.className > span:first-child {
+    width: 100%;
+    text-align: center;
+}
+
+.petClass .petInfo .type.className .moreInfo {
+    transition: background-color.3s;
+    font-family: "FontAwesome";
+    position: absolute;
+    z-index: 5;
+    text-align: center;
+    font-size: 14px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    top: 5px;
+    right: 5px;
+    background-color: #fff8e6;
+    border-radius: 50px;
+    box-shadow: 0 1px 2px black;
+    cursor: pointer;
+}
+
+.petClass .petInfo .type.className .moreInfo:hover {
+    background-color: #e5decd;
+}
+
+.petClass .petInfo .type.className .moreInfo.noInfo {
+    display: none;
+}
+
+.petClass .petInfo .type.className .infoPanel {
+    transition: height.25s, width.2s, right.2s ease-in, top.3s, box-shadow.3s, padding-top.3s;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e1dbc9;
+    z-index: 4;
+    max-height: 370px;
+    white-space: nowrap;
+    width: 20px;
+    right: 10px;
+    top: 10px;
+    padding-top: 0px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 3px gray;
+}
+
+.petClass .petInfo .type.className .infoPanel:not(.show) {
+    height: 20px !important;
+}
+
+.petClass .petInfo .type.className .infoPanel.show {
+    transition: height.2s, width.35s, right.3s, top.2s ease-out, box-shadow.3s, padding-top.3s;
+    width: 140px;
+    right: -5px;
+    top: 50px;
+    padding-top: 30px;
+    box-shadow: 0 0 8px black;
+}
+
+.petClass .petInfo .type.className:has(.moreInfo[class*="noInfo"]) .infoPanel {
+    display: none;
+}
+
+.petClass .petInfo .type.className .infoPanel .shadow {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 30px;
+    background-color: #e1dbc9;
+    box-shadow: 0 0 20px 20px #e1dbc9;
+    z-index: 3;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent {
+    display: flex;
+    position: absolute;
+    padding-top: 40px;
+    top: 0;
+    max-height: 350px;
+    width: 140px;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .fruitTitle {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    font-size: 16px;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent div {
+    transition: background-color.2s, box-shadow.2s;
+    cursor: pointer;
+    background-size: contain;
+    flex-shrink: 0;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent div:hover {
+    background-color: #c5c0b0;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .diff,
+.petClass .petInfo .type.className .infoPanel .infoContent .yise {
+    height: 50px;
+    width: 50px;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 0 25px transparent;
+    border-radius: 3px;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .diff:hover,
+.petClass .petInfo .type.className .infoPanel .infoContent .yise:hover {
+    box-shadow:0 0 0 15px #c5c0b0;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .diff {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url(handbook/texture/diffOff.png);
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .diff.show:hover:has(span:hover) {
+    box-shadow: 0 0 0 25px transparent;
+    background-color: transparent;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .diff.show {
+    background-image: url(handbook/texture/diffOn.png);
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .diff .left,
+.petClass .petInfo .type.className .infoPanel .infoContent .diff .right {
+    transition: all.3s;
+    font-family: "FontAwesome";
+    flex: 1;
+    display: block;
+    position: absolute;
+    border-radius: 40px;
+    font-size: 40px;
+    text-align: center;
+    color: #918973;
+    line-height: 0px;
+    opacity: 0;
+    scale: 0;
+    height: 0;
+    width: 0;
+    pointer-events: none;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .diff.show.area .left,
+.petClass .petInfo .type.className .infoPanel .infoContent .diff.show.area .right {
+    line-height: 40px;
+    opacity: 1;
+    scale: 1;
+    height: 40px;
+    width: 40px;
+    pointer-events: all;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .diff .left {
+    left: 20px;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .diff.show.area .left {
+    left: -40px;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .diff .right {
+    right: 20px;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .diff.show.area .right {
+    right: -40px;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .diff.show .left:hover,
+.petClass .petInfo .type.className .infoPanel .infoContent .diff.show .right:hover {
+    background-color: #00000020;
+    color: #543a23;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .diffName {
+    transition: all.3s;
+    margin-bottom: 0;
+    overflow: hidden;
+    flex-shrink: 0;
+    height: 0;
+    transform: scale(0);
+    color: #918973;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .diffName.show {
+    height: 22.5px;
+    transform: scale(1);
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .diffInfo {
+    transition: all.3s;
+    padding: 0px;
+    height: 0px;
+    scale: 0;
+    opacity: 0;
+}
+
+.petClass .petInfo  .type.className .infoPanel .infoContent .diffInfo.show {
+    padding: 5px 10px;
+    height: 30px;
+    scale: 1;
+    opacity: 1;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .yise {
+    background-image: url(handbook/texture/yiseOff.png);
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .yise.show {
+    background-image: url(handbook/texture/yiseOn.png);
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .fruit {
+    height: 80px;
+    width: 80px;
+    border-radius: 10px;
+    box-shadow:0 0 0 10px transparent;
+}
+
+.petClass .petInfo .type.className .infoPanel .infoContent .fruit:hover {
+    box-shadow:0 0 0 0px #c5c0b0;
+}
+
+.petClass .classBox {
+    transition: opacity.2s;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    opacity: 1;
+    flex: 1;
+    min-height: 0;
+}
+
+.petClass.switch .classBox {
+    opacity: 0;
+}
+
+.petClass .classBox .backBG {
+    transition: opacity.5s, left.4s;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.6;
+    overflow: hidden;
+}
+
+.petClass .classBox.preview .backBG {
+    opacity: 1;
+    left: -10%;
+    pointer-events: none;
+}
+
+.petClass .classBox .backBG .backImg {
+    position: relative;
+    height: 70%;
+    width: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.petClass .classBox .backBG .backImg.reverse {
+    transform: scaleX(-1);
+}
+
+.petClass .classBox .classContent {
+    transition: opacity.5s;
+    height: 100%;
+    overflow: auto;
+    opacity: 1;
+}
+
+.petClass .classBox.preview .classContent {
+    opacity: 0;
+}
+
+.petClass .classBox .classContent .class {
+    transition: filter.15s, height.3s, margin.3s, opacity.3s, transform.3s;
+    display: block;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin: 10px 10px 0 10px;
+    height: 54px;
+    border-radius: 20px;
+    background-color: #F6EDCFDD;
+    box-shadow: 0 0 6px #3b361e;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.petClass:has(.otherFunc .hideFinish input[type=checkbox]:checked) .classBox .classContent .class:has(input[type=checkbox]:checked) {
+    margin: 0 10px;
+    height: 0;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.petClass .classBox .classContent .class:has(input[type=checkbox]:checked) {
+    filter: brightness(0.7);
+}
+
+.petClass .classBox .classContent .class .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.petClass .classBox .classContent .class .content .items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 60px;
+}
+
+.petClass .classBox .classContent .class .content .items .item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    background: url("handbook/texture/itemBack.png") center no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.petClass .classBox .classContent .class .content .items .item img {
+    height: 90%;
+}
+
+.petClass .classBox .classContent .class .content .items .item .count {
+    position: absolute;
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    background-color: #1F1F1F;
+    background-size: cover;
+    bottom: 0;
+    border-radius: 0 0 10px 10px;
+}
+
+.petClass .classBox .classContent .class .content .items .item .count span {
+    color: #C2C0B3;
+    font-size: 10px;
+    margin: 0 6px 1px 0;
+}
+
+.petClass .classBox .classContent .class input[type=checkbox] {
+    appearance: none;
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 30px;
+    top: 11px;
+    right: 25px;
+    background-color: white;
+    pointer-events: none;
+}
+
+.petClass .classBox .classContent .class input[type=checkbox].unCheck {
+    animation: unFinish.3s;
+}
+
+.petClass .classBox .classContent .class input[type=checkbox]:checked {
+    height: 75px;
+    width: 75px;
+    top: -13px;
+    right: 4px;
+    background: url("handbook/texture/finish.png") center no-repeat;
+    background-size: cover;
+}
+
+.petClass .classBox .classContent .class input[type=checkbox].check {
+    animation: showFinish.3s;
+}
+
+.petClass .otherFunc {
+    padding-top: 7px;
+}
+
+.petClass .otherFunc > div {
+    margin-right: 20px;
+}
+
+.petClass .otherFunc p {
+    margin: 0;
+}
+
+.petClass .otherFunc .hideFinish {
+    display: flex;
+    flex-direction: row;
+}
+
+.petClass .otherFunc .noNetwork {
+    padding: 0 5px;
+    border-radius: 20px;
+    color: #f0dada;
+    background-color: #bc2b2b;
+    box-shadow: 0 0 0 5px #bc2b2b;
+}
+
+@keyframes showLoading {
+    0% {
+        filter: blur(0px);
+        filter: opacity(0);
+    }
+    100% {
+        filter: blur(0px);
+        filter: opacity(1);
+    }    
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loaded {
+    0% {
+        display: flex;
+        filter: opacity(1);
+        backdrop-filter: blur(5px);
+    }
+    50% {
+        display: flex;
+        filter: opacity(1);
+        backdrop-filter: blur(5px);
+    }
+    100% {
+        display: flex;
+        filter: opacity(0);
+        backdrop-filter: blur(0px);
+    }
+}
+
+@keyframes loadedText {
+    0% {
+        scale: 1;
+        filter: blur(0px);
+    }
+    50% {
+        scale: 1;
+        filter: blur(0px);
+    }
+    100% {
+        scale: 0.6;
+        filter: blur(10px);
+    }
+}
+
+@keyframes loadedTextRotate {
+    0% {
+        scale: 1;
+        filter: blur(0px);
+        transform: rotate(0deg);
+    }
+    100% {
+        scale: 1;
+        filter: blur(0px);
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes showShadow {
+    0% {
+        background-color: #00000000;
+    }
+    100% {
+        background-color: #00000070;
+    }
+}
+
+@keyframes showAlert {
+    0% {
+        transform: scaleX(0) scaleY(0);
+    }
+    30% {
+        transform: scaleX(0.97) scaleY(1.03);
+    }
+    60% {
+        transform: scaleX(1.02) scaleY(0.98);
+    }
+    100% {
+        transform: scaleX(1) scaleY(1);
+    }
+}
+
+@keyframes bookRotate {
+    0% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(-5deg);
+    }
+}
+
+@keyframes selectPet {
+    0% {
+        transform: scaleX(0.2) scaleY(1.05);
+    }
+    20% {
+        transform: scaleX(0.2) scaleY(1.05);
+    }
+    70% {
+        transform: scaleX(1.07) scaleY(0.95);
+    }
+    100% {
+        transform: scaleX(1) scaleY(1);
+    }
+}
+
+@keyframes showFinish {
+    0% {
+        background: none;
+        background-color: white;
+        width: 28px;
+        height: 28px;
+        top: 11px;
+        right: 25px;
+        opacity: 1;
+    }
+    50% {
+        background: none;
+        background-color: white;
+        width: 28px;
+        height: 28px;
+        top: 40px;
+        right: 25px;
+        opacity: 0;
+    }
+    51% {
+        top: -20px;
+        right: 25px;
+        background: url("handbook/texture/finish.png") center no-repeat;
+        background-size: cover;
+        opacity: 0;
+    }
+    100% {
+        height: 75px;
+        width: 75px;
+        top: -13px;
+        right: 4px;
+        background: url("handbook/texture/finish.png") center no-repeat;
+        background-size: cover;
+        opacity: 1;
+    }
+}
+
+@keyframes unFinish {
+    0% {
+        height: 75px;
+        width: 75px;
+        top: -13px;
+        right: 4px;
+        background: url("handbook/texture/finish.png") center no-repeat;
+        background-size: cover;
+        opacity: 1;
+    }
+    50% {
+        background: none;
+        background-color: white;
+        width: 28px;
+        height: 28px;
+        top: -20px;
+        right: 25px;
+        opacity: 0;
+    }
+    51% {
+        background: none;
+        background-color: white;
+        width: 28px;
+        height: 28px;
+        top: 40px;
+        right: 25px;
+        opacity: 0;
+    }
+    100% {
+        background: none;
+        background-color: white;
+        width: 28px;
+        height: 28px;
+        top: 11px;
+        right: 25px;
+        opacity: 1;
+    }
+}
+
+@keyframes showInfoPanel {
+    0% {
+        width: 0;
+        height: 0;
+        right: 10px;
+        top: 10px;
+        transform: rotate(15deg);
+        transform-origin: top right;
+    }
+    70% {
+        width: 140px;
+        height: 330px;
+        right: -5px;
+        top: -5px;
+        transform-origin: top right;
+    }
+    100% {
+        width: 120px;
+        height: 300px;
+        transform-origin: top right;
+    }
+}
