@@ -33,7 +33,7 @@
 
 支持云存档，该功能使用Gitee仓库实现
 
-其中OAuth功能需要自建后端API使用，私人令牌功能可完全由前端进行
+其中OAuth功能需要[自建后端API](https://github.com/ERRORawa/RocoOAuthAPI)使用，私人令牌功能可完全由前端进行
 
 一切数据操作在前端直接进行，直接对Gitee进行操作，自动完成`创建rocoSave私人仓库，创建存档文件，进行存档上传和下载`
 
