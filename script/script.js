@@ -1507,64 +1507,62 @@ try {
                 if (all[all.length - 1][0] == "11") {
                     allL += all[all.length - 1][1].length - 1;
                 }
-                let finish = JSON.parse(localStorage.getItem(key));
+                let finish = JSON.parse(localStorage.getItem(key)) || [];
                 let finishL = 0;
-                if (finish == null || finish.length == 0) {
-                    finishL = 0;
-                } else {
-                    all.forEach(item => {
-                        let point = 0;
-                        let collect = ["", 0];
-                        switch (item[0]) {
-                            case "1":
-                                point = 5;
-                                collect = ["exp", 150];
-                                break;
-                            case "2":
-                                point = 10;
-                                collect = ["exp", 150];
-                                break;
-                            case "3":
-                                point = 10;
-                                collect = ["crystal", 50];
-                                break;
-                            case "4":
-                                point = 50;
-                                collect = ["recipe", 1];
-                                break;
-                            case "5":
-                                point = 20;
-                                collect = ["fruit", 1];
-                                break;
-                            case "6":
-                                point = 30;
-                                collect = ["soul", 1];
-                                break;
-                            case "7":
-                                point = 50;
-                                collect = ["soul", 1];
-                                break;
-                            case "8":
-                                point = 20;
-                                collect = ["star", 1];
-                                break;
-                            case "9":
-                                point = 30;
-                                collect = ["star", 1];
-                                break;
-                            case "10":
-                                point = 50;
-                                collect = ["crystal", 300];
-                                break;
-                            case "11":
-                                point = item[1].length * 10;
-                                collect = ["skill", 1];
-                                break;
-                        }
-                        pointProgress[1] += point;
-                        if (collect[0] != "recipe") {
-                            collectProgress[collect[0]][1] += collect[1];
-                        }
+                all.forEach(item => {
+                    let point = 0;
+                    let collect = ["", 0];
+                    switch (item[0]) {
+                        case "1":
+                            point = 5;
+                            collect = ["exp", 150];
+                            break;
+                        case "2":
+                            point = 10;
+                            collect = ["exp", 150];
+                            break;
+                        case "3":
+                            point = 10;
+                            collect = ["crystal", 50];
+                            break;
+                        case "4":
+                            point = 50;
+                            collect = ["recipe", 1];
+                            break;
+                        case "5":
+                            point = 20;
+                            collect = ["fruit", 1];
+                            break;
+                        case "6":
+                            point = 30;
+                            collect = ["soul", 1];
+                            break;
+                        case "7":
+                            point = 50;
+                            collect = ["soul", 1];
+                            break;
+                        case "8":
+                            point = 20;
+                            collect = ["star", 1];
+                            break;
+                        case "9":
+                            point = 30;
+                            collect = ["star", 1];
+                            break;
+                        case "10":
+                            point = 50;
+                            collect = ["crystal", 300];
+                            break;
+                        case "11":
+                            point = item[1].length * 10;
+                            collect = ["skill", 1];
+                            break;
+                    }
+                    pointProgress[1] += point;
+                    if (collect[0] != "recipe") {
+                        collectProgress[collect[0]][1] += collect[1];
+                    }
+                    try {
                         finish.forEach(finItem => {
                             if (finItem[0] == item[0]) {
                                 if (item[0] == "11") {
@@ -1582,8 +1580,10 @@ try {
                                 }
                             }
                         });
-                    });
-                }
+                    } catch (err) {
+                        console.error(err.message);
+                    }
+                });
                 if (finishL == allL && allL != 0) {
                     progress.innerText = "完成";
                     progress.classList.add("finish");
