@@ -1,4 +1,4 @@
-var nowVer = 1787124888396;
+var nowVer = 1787172761813;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -1555,7 +1555,7 @@ try {
                             break;
                         case "11":
                             point = item[1].length * 10;
-                            collect = ["skill", 1];
+                            collect = ["skill", item[1].length];
                             break;
                     }
                     pointProgress[1] += point;
