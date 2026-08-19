@@ -473,15 +473,16 @@ try {
                             break;
                         }
                     case 3:
-                        const html = alertPanel.innerHTML;
-                        alertPanel.innerHTML = html;
-                        const localBtn = alertPanel.querySelector(".local");
+                        const btns = alertPanel.querySelector(".alertBtns");
+                        const html = btns.innerHTML;
+                        btns.innerHTML = html;
+                        const localBtn = btns.querySelector(".local");
                         localBtn.innerText = "本地";
                         localBtn.addEventListener("click", () => {
                             closePanel("alertPanel");
                             uploadDataFile();
                         });
-                        const cloudBtn = alertPanel.querySelector(".cloud");
+                        const cloudBtn = btns.querySelector(".cloud");
                         cloudBtn.innerText = "云端";
                         cloudBtn.addEventListener("click", () => {
                             closePanel("alertPanel");
@@ -1342,8 +1343,10 @@ try {
         } else {
             tip.style.display = "none";
         }
-        if (content["showBtn"] != undefined) {
+        if (content["showBtn"]) {
             alertPanel.classList.add("showBtn");
+        } else {
+            alertPanel.classList.remove("showBtn");
         }
         alertPanel.classList.add("show");
     }
@@ -1368,14 +1371,15 @@ try {
         checkRotate(true);
         if (localStorage["notice"] != noticeVer) {
             setTimeout(() => {
-                const html = alertPanel.innerHTML;
-                alertPanel.innerHTML = html;
-                const localBtn = alertPanel.querySelector(".local");
+                const btns = alertPanel.querySelector(".alertBtns");
+                const html = btns.innerHTML;
+                btns.innerHTML = html;
+                const localBtn = btns.querySelector(".local");
                 localBtn.innerText = "好的";
                 localBtn.addEventListener("click", () => {
                     closePanel("alertPanel");
                 });
-                const cloudBtn = alertPanel.querySelector(".cloud");
+                const cloudBtn = btns.querySelector(".cloud");
                 cloudBtn.innerText = "不再提示";
                 cloudBtn.addEventListener("click", async () => {
                     localStorage.setItem("notice", noticeVer);
@@ -1696,14 +1700,15 @@ try {
     })
 
     dataBox.querySelector(".clearData").addEventListener("click", async () => {
-        const html = alertPanel.innerHTML;
-        alertPanel.innerHTML = html;
-        const localBtn = alertPanel.querySelector(".local");
+        const btns = alertPanel.querySelector(".alertBtns");
+        const html = btns.innerHTML;
+        btns.innerHTML = html;
+        const localBtn = btns.querySelector(".local");
         localBtn.innerText = "取消";
         localBtn.addEventListener("click", () => {
             closePanel("alertPanel");
         });
-        const cloudBtn = alertPanel.querySelector(".cloud");
+        const cloudBtn = btns.querySelector(".cloud");
         cloudBtn.innerText = "确认";
         cloudBtn.addEventListener("click", async () => {
             closePanel("alertPanel");

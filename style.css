@@ -309,6 +309,10 @@ button {
     align-items: center;
 }
 
+#dataPanel .box .dataContent .userInfo .content .login .enterKey {
+    text-align: center;
+}
+
 #dataPanel .box .dataContent .userInfo .content .login .loginWay {
     display: flex;
     flex-direction: column;
@@ -576,7 +580,9 @@ button {
 }
 
 #filterPanel .box .filterContent .rightFilter .filterBook .content > img {
-    transition: height.5s, margin-top.5s;
+    transition: height.5s, margin-top.5s, left.5s;
+    position: absolute;
+    left: 70px;
     margin-top: 5px;
     height: 70px;
     transform: rotate(-5deg);
@@ -584,6 +590,7 @@ button {
 
 #filterPanel .box .filterContent .rightFilter .filterBook .content img:hover,
 #filterPanel .box .filterContent .rightFilter .filterBook .content:has(.selectBook.show) > img  {
+    left: 63px;
     height: 80px;
     margin-top: 0px;
     animation: bookRotate 1.5s ease-in-out infinite;
