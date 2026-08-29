@@ -451,7 +451,8 @@ button {
 }
 
 #filterPanel .box .filterContent .filterClass .title div input[type=checkbox],
-.petClass .otherFunc .hideFinish input[type=checkbox] {
+.petClass .otherFunc .hideFinish input[type=checkbox],
+.petClass .otherFunc .showDev input[type=checkbox] {
     transition: background-color.1s;
     appearance: none;
     position: relative;
@@ -465,12 +466,14 @@ button {
 }
 
 #filterPanel .box .filterContent .filterClass .title div input[type=checkbox]:checked,
-.petClass .otherFunc .hideFinish input[type=checkbox]:checked {
+.petClass .otherFunc .hideFinish input[type=checkbox]:checked,
+.petClass .otherFunc .showDev input[type=checkbox]:checked {
     background-color: #09b309;
 }
 
 #filterPanel .box .filterContent .filterClass .title div input[type=checkbox]::after,
-.petClass .otherFunc .hideFinish input[type=checkbox]::after {
+.petClass .otherFunc .hideFinish input[type=checkbox]::after,
+.petClass .otherFunc .showDev input[type=checkbox]::after {
     transition: left.1s, background-color.2s;
     content: "";
     height: 23px;
@@ -485,12 +488,14 @@ button {
 }
 
 #filterPanel .box .filterContent .filterClass .title div input[type=checkbox]:hover::after,
-.petClass .otherFunc .hideFinish input[type=checkbox]:hover::after {
+.petClass .otherFunc .hideFinish input[type=checkbox]:hover::after,
+.petClass .otherFunc .showDev input[type=checkbox]:hover::after {
     background-color: #eae3d0;
 }
 
 #filterPanel .box .filterContent .filterClass .title div input[type=checkbox]:checked::after,
-.petClass .otherFunc .hideFinish input[type=checkbox]:checked::after {
+.petClass .otherFunc .hideFinish input[type=checkbox]:checked::after,
+.petClass .otherFunc .showDev input[type=checkbox]:checked::after {
     left: 22px;
 }
 
@@ -764,6 +769,17 @@ body.rotate .sideBar .petList {
     opacity: 0;
     overflow: hidden;
 }
+
+:not(:has(.petClass .otherFunc .showDev input[type=checkbox]:checked)) .sideBar .petList .petBox.dev {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    padding-left: 45px;
+    opacity: 0;
+    overflow: hidden;
+}
+
+
 
 .sideBar .petList .petBox .info {
     display: flex;
@@ -1388,9 +1404,15 @@ body.rotate .sideBar .petList {
     margin: 0;
 }
 
-.petClass .otherFunc .hideFinish {
+.petClass .otherFunc .hideFinish,
+.petClass .otherFunc .showDev {
     display: flex;
     flex-direction: row;
+}
+
+.petClass .otherFunc .showDev {
+    position: absolute;
+    right: 20px;
 }
 
 .petClass .otherFunc .noNetwork {

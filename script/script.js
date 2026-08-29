@@ -1,4 +1,4 @@
-var nowVer = 1788016977456;
+var nowVer = 1788023116703;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -517,11 +517,13 @@ try {
 
     function setReverse(pet, petID) {
         if (pet.reverse) {
-            if (typeof(pet.reverse) == "boolean" || (typeof(pet.reverse) == "string" && pet.reverse == petID)) {
+            if (typeof pet.reverse == "boolean" || (typeof pet.reverse == "string" && pet.reverse == petID)) {
                 backImg.classList.add("reverse");
             } else {
                 backImg.classList.remove("reverse");
             }
+        } else {
+            backImg.classList.remove("reverse");
         }
     }
 
@@ -535,7 +537,11 @@ try {
         if (last != undefined) {
             const lastID = last.querySelector(".id").getAttribute("key");
             last.querySelector(".name").innerText = json[lastID].name;
-            last.querySelector(".avatar").src = `avatar/${lastID}.png?${version[0]}`
+            if (parseInt(lastID) < 3000) {
+                last.querySelector(".avatar").src = `avatar/${lastID}.png?${version[0]}`;
+            } else {
+                last.querySelector(".avatar").src = `createJSON/avatar/${lastID}.png`;
+            }
             last.classList.remove("select");
         }
         petBox.classList.add("select");
@@ -560,7 +566,11 @@ try {
             const pet = json[id];
             setType(pet.type[0], pet.type[1]);
             backBG.style.backgroundImage = `url(handbook/BG/${pet.bg}.png?${version[3]}`;
-            backImg.style.backgroundImage = `url(illustration/${id}.png?${version[1]})`;
+            if (parseInt(id) < 3000) {
+                backImg.style.backgroundImage = `url(illustration/${id}.png?${version[1]})`;
+            } else {
+                backImg.style.backgroundImage = `url(createJSON/illustration/${id}.png)`;
+            }
             setReverse(pet, id);
             className.innerText = pet.name;
             let k = 0;
@@ -1150,7 +1160,7 @@ try {
                     let tempClass = [];
                     let finishCount = 0;
                     Class.forEach(item => {
-                        if(filterContent["class"].includes(item[0])) {
+                        if (filterContent["class"].includes(item[0])) {
                             tempClass.push(item[0]);
                             if (item[0] == "11") {
                                 tempClass.push(item[1]);
@@ -1209,14 +1219,14 @@ try {
             hidePet.forEach(petBox => petBox.classList.add("hidden"));
             const nowSelect = petList.querySelector(".petBox.select");
             if (nowSelect.classList.contains("hidden")) {
-                const willSelect = petList.querySelector(".petBox:not(.hidden)");
+                const willSelect = petList.querySelector(".petBox:not(.hidden):not(.dev)");
                 if (willSelect != null) {
                     nowSelect.classList.remove("select");
                     willSelect.click();
                 }
             }
             if (hasFilter) {
-                filterPetsCount.innerText = petList.querySelectorAll(".petBox:not(.hidden)").length;
+                filterPetsCount.innerText = petList.querySelectorAll(".petBox:not(.hidden):not(.dev)").length;
                 filterBtn.classList.add("hasFilter");
             } else {
                 filterBtn.classList.remove("hasFilter");
@@ -1423,10 +1433,12 @@ try {
             }
         });
         Object.keys(json).forEach(async key => {
-            urls.push(
-                `/avatar/${key}.png?${version[0]}`,
-                `/illustration/${key}.png?${version[1]}`
-            );
+            if (parseInt(key) < 3000) {
+                urls.push(
+                    `/avatar/${key}.png?${version[0]}`,
+                    `/illustration/${key}.png?${version[1]}`
+                );
+            }
             let pet = json[key];
             let fruits = pet.fruit;
             if (fruits != undefined) {
@@ -1493,7 +1505,12 @@ try {
             info.classList.add("info");
             let id = document.createElement("p");
             id.classList.add("id");
-            id.innerText = key.slice(1);
+            if (parseInt(key) < 3000) {
+                id.innerText = key.slice(1);
+            } else {
+                id.innerText = "？？？";
+                petBox.classList.add("dev");
+            }
             id.setAttribute("key", key);
             let name = document.createElement("p");
             name.classList.add("name");
@@ -1502,7 +1519,11 @@ try {
             avatarBox.classList.add("avatarBox");
             let avatar = document.createElement("img");
             avatar.classList.add("avatar");
-            avatar.src = `avatar/${key}.png?${version[0]}`;
+            if (parseInt(key) < 3000) {
+                avatar.src = `avatar/${key}.png?${version[0]}`;
+            } else {
+                avatar.src = `createJSON/avatar/${key}.png`;
+            }
             let progress = document.createElement("p");
             progress.classList.add("progress");
             let selectBG = document.createElement("div");
