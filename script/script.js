@@ -1,4 +1,4 @@
-var nowVer = 1787172761813;
+var nowVer = 1788016977456;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -515,6 +515,16 @@ try {
             }
     }
 
+    function setReverse(pet, petID) {
+        if (pet.reverse) {
+            if (typeof(pet.reverse) == "boolean" || (typeof(pet.reverse) == "string" && pet.reverse == petID)) {
+                backImg.classList.add("reverse");
+            } else {
+                backImg.classList.remove("reverse");
+            }
+        }
+    }
+
     function setClass(petBox, id) {
         let nowClassFinish = 0;
         scrollPetList(petBox);
@@ -551,11 +561,7 @@ try {
             setType(pet.type[0], pet.type[1]);
             backBG.style.backgroundImage = `url(handbook/BG/${pet.bg}.png?${version[3]}`;
             backImg.style.backgroundImage = `url(illustration/${id}.png?${version[1]})`;
-            if (pet.reverse) {
-                backImg.classList.add("reverse");
-            } else {
-                backImg.classList.remove("reverse");
-            }
+            setReverse(pet, id);
             className.innerText = pet.name;
             let k = 0;
             for (let i = 0; i < pet.class.length; i++) {
@@ -864,11 +870,13 @@ try {
                     const setImg = new Image();
                     setImg.onload = () => {
                         backImg.style.backgroundImage = `url(illustration/${resName}?${version[1]})`;
+                        setReverse(pet, preResName);
                     }
                     setImg.onerror = () => {
                         let resName = preResName + ".png";
                         setImg.onload = () => {
                             backImg.style.backgroundImage = `url(illustration/${resName}?${version[1]})`;
+                            setReverse(pet, preResName);
                         }
                         setImg.onerror = () => {
                             backImg.style.backgroundImage = `url(illustration/${id}.png?${version[1]})`;
