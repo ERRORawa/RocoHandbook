@@ -1,4 +1,4 @@
-var nowVer = 1788023116703;
+var nowVer = 1788278925391;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -86,8 +86,8 @@ try {
     const noNetworkText = document.querySelector(".noNetwork");
     const fcBtn = document.querySelector(".fullscreen");
     var swVer = 1782053515028;
-    var noticeVer = 5;
-    var noticeContent = { title: "更新公告", text: "增加课题研究点数统计\n\n增加课题奖励收集统计（点击课题研究点显示）\n\n每个课题都增加“完成该课题能够获取到的奖励”显示\n\n云存档支持长期在线", showBtn: true };
+    var noticeVer = 6;
+    var noticeContent = { title: "更新公告", text: "修复技能课题点统计异常的问题\n\n导入数据增加兼容多多工具箱", showBtn: true };
 
     async function checkUpdate() {
         try {
@@ -563,7 +563,7 @@ try {
             if (finish == null) {
                 finish = [];
             }
-            const pet = json[id];
+            const pet = JSON.parse(JSON.stringify(json[id]));
             setType(pet.type[0], pet.type[1]);
             backBG.style.backgroundImage = `url(handbook/BG/${pet.bg}.png?${version[3]}`;
             if (parseInt(id) < 3000) {
@@ -589,6 +589,7 @@ try {
                 content.appendChild(text);
                 content.appendChild(items);
                 Class.appendChild(checkbox);
+                pet.class[i][0] = pet.class[i][0].split("-")[0];
                 switch (pet.class[i][0]) {
                     case "1":
                         text.innerText = "捕捉1只精灵";
@@ -1151,7 +1152,10 @@ try {
             }
             if (filterContent["class"].length != 0 && !isHide) {
                 hasFilter = true;
-                let Class = json[petID].class;
+                let Class = JSON.parse(JSON.stringify(json[petID].class));
+                for (let i = 0; i < Class.length; i++) {
+                    Class[i][0] = Class[i][0].split("-")[0];
+                }
                 if (filterContent["incomplete"]) {
                     let finish = JSON.parse(localStorage.getItem(petID));
                     if (finish == null) {
@@ -1528,7 +1532,10 @@ try {
             progress.classList.add("progress");
             let selectBG = document.createElement("div");
             selectBG.classList.add("selectBG");
-            let all = pet.class;
+            let all = JSON.parse(JSON.stringify(pet.class));
+            for (let i = 0; i < all.length; i++) {
+                all[i][0] = all[i][0].split("-")[0];
+            }
             let allL = all.length;
             if (allL == 0) {
                 progress.innerText = "";
@@ -1598,12 +1605,13 @@ try {
                                     item[1].forEach(skill => {
                                         if (finItem[1].includes(skill[1])) {
                                             finishL++;
+                                            pointProgress[0] += 10;
                                         }
                                     });
                                 } else {
                                     finishL++;
+                                    pointProgress[0] += point;
                                 }
-                                pointProgress[0] += point;
                                 if (collect[0] != "recipe") {
                                     collectProgress[collect[0]][0] += collect[1];
                                 }
@@ -1776,9 +1784,46 @@ try {
                 let data = JSON.parse(event.target.result);
                 localStorage.clear();
                 localStorage.setItem("cloudSaveToken", accessToken);
-                for (let key in data) {
-                    if (data.hasOwnProperty(key)) {
-                        localStorage.setItem(key, data[key]);
+                if (data["app"] != undefined) {
+                    if (data.app == "多多工具箱") {
+                        for (let i = 0; i < data.collections.topics.length; i++) {
+                            let id = "";
+                            if (data.collections.topics[i].includes("权杖-Ⅴ")) {
+                                id = data.collections.topics[i].replace("权杖-Ⅴ", "0146").split(":");
+                            } else {
+                                id = data.collections.topics[i].replace("N", "0").split("-");
+                            }
+                            const storage = JSON.parse(localStorage.getItem(id[0])) || [];
+                            const petClass = json[id[0]].class;
+                            petClass.forEach(item => {
+                                const map = item[0].split("-");
+                                if (map.length == 1 && map[0] == id[1]) {
+                                    storage.push(map);
+                                } else if (map.length == 2 && map[1] == id[1]) {
+                                    if (map[0] == "11") {
+                                        storage.push(["11", [item[1][0][1]]]);
+                                    } else if (map[0] == "8") {
+                                        storage.push(["8", item[1]]);
+                                    } else {
+                                        storage.push([map[0]]);
+                                    }
+                                } else if (map.length == 3 && (parseInt(map[1]) <= parseInt(id[1]) && parseInt(id[1]) <= parseInt(map[2]))) {
+                                    if (storage[storage.length - 1][0] != "11") {
+                                        storage.push(["11", [item[1][parseInt(id[1]) - parseInt(map[1])][1]]]);
+                                    } else {
+                                        storage[storage.length - 1][1].push(item[1][parseInt(id[1]) - parseInt(map[1])][1]);
+                                    }
+                                }
+                            });
+                            storage.sort((a, b) => parseInt(a[0]) - parseInt(b[0]));
+                            localStorage.setItem(id[0], JSON.stringify(storage));
+                        }
+                    }
+                } else {
+                    for (let key in data) {
+                        if (data.hasOwnProperty(key)) {
+                            localStorage.setItem(key, data[key]);
+                        }
                     }
                 }
                 if (accessToken) {
