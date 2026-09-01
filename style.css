@@ -360,7 +360,13 @@ button {
 }
 
 #dataPanel .box .dataContent .dataManage .content span {
+    transition: color.2s;
     color: #00000050;
+    cursor: pointer;
+}
+
+#dataPanel .box .dataContent .dataManage .content span:hover {
+    color: cornflowerblue;
 }
 
 #dataPanel .box .dataContent .dataManage .content .clearData {

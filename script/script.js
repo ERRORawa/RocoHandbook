@@ -1,4 +1,4 @@
-var nowVer = 1788278925391;
+var nowVer = 1788285009226;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -1834,6 +1834,10 @@ try {
             reader.readAsText(event.target.files[0]);
         });
         loadFile.click();
+    });
+    
+    dataBox.querySelector(".dataManage .content span").addEventListener("click", () => {
+        window.open("https://www.bilibili.com/video/BV1obtL61E6q");
     });
 
     pointProgressEle.parentElement.addEventListener("click", showItemBox);
