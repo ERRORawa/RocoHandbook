@@ -1,4 +1,4 @@
-var nowVer = 1788370921574;
+var nowVer = 1788370921575;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -27,7 +27,7 @@ function clearCache() {
     location.reload();
 }
 
-try {a
+try {
     const app = document.querySelector("app");
     const loading = document.getElementById("loading");
     const petList = document.querySelector(".petList");
