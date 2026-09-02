@@ -71,14 +71,519 @@ button {
     align-items: center;
     height: 100%;
     width: 100%;
-    background-color: #E7E1D1;
-    z-index: 20;
+    background-color: #1F1F2D;
+    z-index: 40;
 }
 
-#loading p.loadText {
-    font-size: 45px;
-    font-weight: normal;
-    animation: showLoading 2s;
+body.rotate #loading .center {
+    transform: scale(0.5) rotate(-90deg);
+}
+
+#loading .center {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    transform: scale(0.5);
+}
+
+#loading .center > div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loading .center .progress .box {
+    position: relative;
+    transform: scale(-1);
+    height: 219px;
+    left: 22px;
+    bottom: 32px;
+}
+
+#loading .center .progress .box div {
+    transition: height.5s;
+    height: 0%;
+    overflow: hidden;
+}
+
+#loading .center .progress .box div .finishProgress {
+    transition: opacity.5s;
+    position: absolute;
+    transform: scale(1.5);
+    opacity: 0;
+    left: 0px;
+    top: 18px;
+}
+
+#loading.finish .center .progress .box div .finishProgress {
+    animation: finishProgress 0.9s 0.5s;
+}
+
+#loading .center .leftTop2 img {
+    position: relative;
+    transform: scale(0) rotate(-10deg);
+    transform-origin: right bottom;
+    left: -110px;
+    bottom: 250px;
+}
+
+#loading.finish .center .leftTop2 img {
+    animation: finishLeaf 0.4s 0.56s forwards;
+}
+
+#loading .center .leftTop1 img {
+    position: relative;
+    transform: scale(0) rotate(-10deg);
+    transform-origin: right bottom;
+    left: -134px;
+    bottom: 190px;
+}
+
+#loading.finish .center .leftTop1 img {
+    animation: finishLeaf 0.4s 0.48s forwards;
+}
+
+#loading .center .left2 img {
+    position: relative;
+    transform: scale(0) rotate(-10deg);
+    transform-origin: right bottom;
+    left: -92px;
+    bottom: 129px;
+}
+
+#loading.finish .center .left2 img {
+    animation: finishLeaf 0.4s 0.56s forwards;
+}
+
+#loading .center .left1 img {
+    position: relative;
+    transform: scale(0) rotate(-10deg);
+    transform-origin: right bottom;
+    left: -48px;
+    bottom: 107px;
+}
+
+#loading.finish .center .left1 img {
+    animation: finishLeaf 0.4s 0.52s forwards;
+}
+
+#loading .center .top4 img {
+    position: relative;
+    transform: scale(0) rotate(-10deg);
+    transform-origin: right bottom;
+    left: 12px;
+    bottom: 376px;
+}
+
+#loading.finish .center .top4 img {
+    animation: finishLeaf 0.4s 0.52s forwards;
+}
+
+#loading .center .top3 img {
+    position: relative;
+    transform: scale(0) rotate(-10deg);
+    transform-origin: right bottom;
+    left: 16px;
+    bottom: 250px;
+}
+
+#loading.finish .center .top3 img {
+    animation: finishLeaf 0.4s 0.52s forwards;
+}
+
+#loading .center .top2 img {
+    position: relative;
+    transform: scale(0) rotate(-10deg);
+    transform-origin: right bottom;
+    left: 44px;
+    bottom: 212px;
+}
+
+#loading.finish .center .top2 img {
+    animation: finishLeaf 0.4s 0.48s forwards;
+}
+
+#loading .center .top1 img {
+    position: relative;
+    transform: scale(0) rotate(-10deg);
+    transform-origin: right bottom;
+    left: 65px;
+    bottom: 161px;
+}
+
+#loading.finish .center .top1 img {
+    animation: finishLeaf 0.4s 0.44s forwards;
+}
+
+#loading .center .rightTopLeaf3 img {
+    position: relative;
+    transform: scale(0) rotate(-10deg);
+    transform-origin: left bottom;
+    left: 199px;
+    bottom: 227px;
+}
+
+#loading.finish .center .rightTopLeaf3 img {
+    animation: finishLeaf 0.4s 0.56s forwards;
+}
+
+#loading .center .rightTopLeaf2 img {
+    position: relative;
+    transform: scale(0) rotate(-10deg);
+    transform-origin: left bottom;
+    left: 152px;
+    bottom: 216px;
+}
+
+#loading.finish .center .rightTopLeaf2 img {
+    animation: finishLeaf 0.5s 0.44s forwards;
+}
+
+#loading .center .rightTopLeaf1 img {
+    position: relative;
+    transform: scale(0) rotate(-10deg);
+    transform-origin: left bottom;
+    left: 129px;
+    bottom: 161px;
+}
+
+#loading.finish .center .rightTopLeaf1 img {
+    animation: finishLeaf 0.5s 0.4s forwards;
+}
+
+#loading .center .rightLeaf img {
+    position: relative;
+    transform: scale(0) rotate(-10deg);
+    transform-origin: left bottom;
+    left: 139px;
+    bottom: 46px;
+}
+
+#loading.finish .center .rightLeaf img {
+    animation: finishLeaf 0.5s 0.4s forwards;
+}
+
+#loading .center .flyLeaf8 img {
+    position: relative;
+    transform: scale(0) rotate(-50deg);
+    left: -182px;
+    bottom: 210px;
+}
+
+#loading.finish .center .flyLeaf8 img {
+    animation: flyLeaf8 0.6s 0.8s forwards linear;
+}
+
+#loading .center .flyLeaf7 img {
+    position: relative;
+    transform: scale(0) rotate(-60deg);
+    left: -123px;
+    bottom: 199px;
+}
+
+#loading.finish .center .flyLeaf7 img {
+    animation: flyLeaf7 0.6s 0.8s forwards linear;
+}
+
+#loading .center .flyLeaf6 img {
+    position: relative;
+    transform: scale(0) rotate(-50deg);
+    left: -113px;
+    bottom: 209px;
+}
+
+#loading.finish .center .flyLeaf6 img {
+    animation: flyLeaf6 0.7s 0.7s forwards linear;
+}
+
+#loading .center .flyLeaf5 img {
+    position: relative;
+    transform: scale(0) rotate(-63deg);
+    left: -124px;
+    bottom: 256px;
+}
+
+#loading.finish .center .flyLeaf5 img {
+    animation: flyLeaf5 0.7s 0.7s forwards linear;
+}
+
+#loading .center .flyLeaf4 img {
+    position: relative;
+    transform: scale(0) rotate(-57deg);
+    left: -119px;
+    bottom: 307px;
+}
+
+#loading.finish .center .flyLeaf4 img {
+    animation: flyLeaf4 0.7s 0.7s forwards linear;
+}
+
+#loading .center .flyLeaf3 img {
+    position: relative;
+    transform: scale(0) rotate(30deg);
+    left: -114px;
+    bottom: 352px;
+}
+
+#loading.finish .center .flyLeaf3 img {
+    animation: flyLeaf3 0.6s 0.7s forwards linear;
+}
+
+#loading .center .flyLeaf2 img {
+    position: relative;
+    transform: scale(0) rotate(-55deg);
+    left: -26px;
+    bottom: 366px;
+}
+
+#loading.finish .center .flyLeaf2 img {
+    animation: flyLeaf2 0.6s 0.8s forwards linear;
+}
+
+#loading .center .flyLeaf1 img {
+    position: relative;
+    transform: scale(0) rotate(-60deg);
+    left: 67px;
+    bottom: 329px;
+}
+
+#loading.finish .center .flyLeaf1 img {
+    animation: flyLeaf1 0.7s 0.7s forwards linear;
+}
+
+#loading .center .round19 img {
+    position: relative;
+    transform: scale(0);
+    left: -65px;
+    bottom: 142px;
+}
+
+#loading.finish .center .round19 img {
+    animation: round19 1.4s 0.8s forwards linear;
+}
+
+#loading .center .round18 img {
+    position: relative;
+    transform: scale(0) rotate(0deg);
+    transform-origin: top right;
+    left: -63px;
+    bottom: 251px;
+}
+
+#loading.finish .center .round18 img {
+    animation: round18 1.3s 0.8s forwards linear;
+}
+
+#loading .center .round17 img {
+    position: relative;
+    transform: scale(0);
+    left: -28px;
+    bottom: 197px;
+}
+
+#loading.finish .center .round17 img {
+    animation: round17 1.3s 0.9s forwards linear;
+}
+
+#loading .center .round16 img {
+    position: relative;
+    transform: scale(0);
+    left: -18px;
+    bottom: 121px;
+}
+
+#loading.finish .center .round16 img {
+    animation: round16 1.6s 0.7s forwards linear;
+}
+
+#loading .center .round15 img {
+    position: relative;
+    transform: scale(0);
+    left: -2px;
+    bottom: 181px;
+}
+
+#loading.finish .center .round15 img {
+    animation: round15 0.7s 1s forwards linear;
+}
+
+#loading .center .round14 img {
+    position: relative;
+    transform: scale(0);
+    left: 4px;
+    bottom: 147px;
+}
+
+#loading.finish .center .round14 img {
+    animation: round14 1.6s 0.8s forwards linear;
+}
+
+#loading .center .round13 img {
+    position: relative;
+    transform: scale(0);
+    left: 41px;
+    bottom: 171px;
+}
+
+#loading.finish .center .round13 img {
+    animation: round13 1.4s 0.7s forwards linear;
+}
+
+#loading .center .round12 img {
+    position: relative;
+    transform: scale(0);
+    left: 65px;
+    bottom: 249px;
+}
+
+#loading.finish .center .round12 img {
+    animation: round12 1.2s 0.6s forwards linear;
+}
+
+#loading .center .round11 img {
+    position: relative;
+    transform: scale(0);
+    left: 88px;
+    bottom: 246px;
+}
+
+#loading.finish .center .round11 img {
+    animation: round11 1.7s 0.6s forwards linear;
+}
+
+#loading .center .round10 img {
+    position: relative;
+    transform: scale(0);
+    left: 105px;
+    bottom: 256px;
+}
+
+#loading.finish .center .round10 img {
+    animation: round10 1.5s 0.8s forwards linear;
+}
+
+#loading .center .round9 img {
+    position: relative;
+    transform: scale(0);
+    left: 106px;
+    bottom: 165px;
+}
+
+#loading.finish .center .round9 img {
+    animation: round9 1.1s 1.2s forwards linear;
+}
+
+#loading .center .round8 img {
+    position: relative;
+    transform: scale(0);
+    left: 120px;
+    bottom: 210px;
+}
+
+#loading.finish .center .round8 img {
+    animation: round8 1.7s 0.6s forwards linear;
+}
+
+#loading .center .round7 img {
+    position: relative;
+    transform: scale(0);
+    left: 123px;
+    bottom: 262px;
+}
+
+#loading.finish .center .round7 img {
+    animation: round7 1s 1.3s forwards linear;
+}
+
+#loading .center .round6 img {
+    position: relative;
+    transform: scale(0);
+    left: 127px;
+    bottom: 199px;
+}
+
+#loading.finish .center .round6 img {
+    animation: round6 1.1s 1.2s forwards linear;
+}
+
+#loading .center .round5 img {
+    position: relative;
+    transform: scale(0);
+    left: 132px;
+    bottom: 224px;
+}
+
+#loading.finish .center .round5 img {
+    animation: round5 1.2s 1.1s forwards linear;
+}
+
+#loading .center .round4 img {
+    position: relative;
+    transform: scale(0);
+    transform-origin: right bottom;
+    left: 132px;
+    bottom: 260px;
+}
+
+#loading.finish .center .round4 img {
+    animation: round4 1.3s 0.7s forwards linear;
+}
+
+#loading .center .round3 img {
+    position: relative;
+    transform: scale(0);
+    left: 157px;
+    bottom: 112px;
+}
+
+#loading.finish .center .round3 img {
+    animation: round3 1.6s 0.7s forwards linear;
+}
+
+#loading .center .round2 img {
+    position: relative;
+    transform: scale(0);
+    left: 154px;
+    bottom: 122px;
+}
+
+#loading.finish .center .round2 img {
+    animation: round2 1.3s 1s forwards linear;
+}
+
+#loading .center .round1 img {
+    position: relative;
+    transform: scale(0);
+    left: 185px;
+    bottom: 193px;
+}
+
+#loading.finish .center .round1 img {
+    animation: round1 1.7s 0.6s forwards linear;
+}
+
+#loading .center .light div {
+    position: relative;
+    transform: scale(3);
+    left: 5px;
+    bottom: 100px;
+    height: 130px;
+    width: 150px;
+    background: url("loading/light.png") no-repeat;
+    background-position: 0 0;
+}
+
+#loading.finish .center .light div {
+    animation: finishLight 0.6s 0.5s steps(1)
+}
+
+#loading .center .front img {
+    position: relative;
+    left: 33px;
+    bottom: 29px;
 }
 
 #loading .loadFailed {
@@ -92,22 +597,12 @@ button {
     flex-direction: column;
 }
 
-#loading p span { 
-    display: inline-block;
-    animation: loading 1.5s linear infinite;
+#loading.hide {
+    animation: loaded1 1s 1.2s forwards;
 }
 
-#loading.hide:not([class*="willRotate"]) {
-    display: none; 
-    animation: loaded.5s;
-}
-
-#loading.hide p {
-    animation: loadedText.5s;
-}
-
-#loading.hide.willRotate p {
-    animation: loadedTextRotate.5s;
+#loading.hide .center:first-child {
+    animation: loaded2 1s 1s forwards;
 }
 
 .panel {
@@ -1434,69 +1929,685 @@ body.rotate .sideBar .petList {
     box-shadow: 0 0 0 5px #bc2b2b;
 }
 
-@keyframes showLoading {
-    0% {
-        filter: blur(0px);
-        filter: opacity(0);
-    }
-    100% {
-        filter: blur(0px);
-        filter: opacity(1);
-    }    
-}
-
-@keyframes loading {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes loaded {
+@keyframes loaded1 {
     0% {
         display: flex;
-        filter: opacity(1);
+        background-color: #1F1F2DFF;
+        backdrop-filter: blur(5px);
+    }
+    25% {
+        display: flex;
+        background-color: #1F1F2DFF;
         backdrop-filter: blur(5px);
     }
     50% {
         display: flex;
-        filter: opacity(1);
-        backdrop-filter: blur(5px);
-    }
-    100% {
-        display: flex;
-        filter: opacity(0);
+        background-color: #1F1F2D00;
         backdrop-filter: blur(0px);
     }
+    99% {
+        display: flex;
+        background-color: #1F1F2D00;
+        backdrop-filter: blur(0px);
+    }
+    100% {
+        display: none;
+        background-color: #1F1F2D00;
+    }
 }
 
-@keyframes loadedText {
+@keyframes loaded2 {
     0% {
-        scale: 1;
-        filter: blur(0px);
+        filter: opacity(1);
+    }
+    25% {
+        filter: opacity(1);
     }
     50% {
-        scale: 1;
-        filter: blur(0px);
+        filter: opacity(0);
     }
     100% {
-        scale: 0.6;
-        filter: blur(10px);
+        filter: opacity(0);
     }
 }
 
-@keyframes loadedTextRotate {
+@keyframes finishProgress {
     0% {
-        scale: 1;
-        filter: blur(0px);
-        transform: rotate(0deg);
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
     }
     100% {
-        scale: 1;
-        filter: blur(0px);
-        transform: rotate(90deg);
+        opacity: 0;
+    }
+}
+
+@keyframes finishLeaf {
+    0% {
+        transform: scale(0) rotate(-10deg);
+    }
+    60% {
+        transform: scale(0) rotate(-10deg);
+    }
+    80% {
+        transform: scale(1.45) rotate(-5deg);
+    }
+    100% {
+        transform: scale(1.45) rotate(0deg);
+    }
+}
+
+@keyframes finishLight {
+    0% {
+        background-position: 0 0;
+    }
+    5% {
+        background-position: -150px 0;
+    }
+    10% {
+        background-position: -300px 0;
+    }
+    15% {
+        background-position: -450px 0;
+    }
+    20% {
+        background-position: 0 -130px;
+    }
+    25% {
+        background-position: -150px -130px;
+    }
+    30% {
+        background-position: -300px -130px;
+    }
+    35% {
+        background-position: -450px -130px;
+    }
+    40% {
+        background-position: 0 -260px;
+    }
+    45% {
+        background-position: -150px -260px;
+    }
+    50% {
+        background-position: -300px -260px;
+    }
+    55% {
+        background-position: -450px -260px;
+    }
+    60% {
+        background-position: 0 -390px;
+    }
+    65% {
+        background-position: -150px -390px;
+    }
+    70% {
+        background-position: -300px -390px;
+    }
+    75% {
+        background-position: -450px -390px;
+    }
+    80% {
+        background-position: 0 -520px;
+    }
+    85% {
+        background-position: -150px -520px;
+    }
+    90% {
+        background-position: -300px -520px;
+    }
+    95% {
+        background-position: -450px -520px;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+@keyframes flyLeaf8 {
+    0% {
+        transform: scale(0) rotate(-50deg);
+        left: -182px;
+        bottom: 210px;
+    }
+    25% {
+        transform: scale(1.5) rotate(-36.3deg);
+        left: -184.5px;
+        bottom: 215px;
+    }
+    50% {
+        transform: scale(1.5) rotate(-22.5deg);
+        left: -187px;
+        bottom: 226px;
+    }
+    75% {
+        transform: scale(1.5) rotate(-8.7deg);
+        left: -190.5px;
+        bottom: 224.5px;
+    }
+    100% {
+        transform: scale(0) rotate(5deg);
+        left: -196px;
+        bottom: 223px;
+    }
+}
+
+@keyframes flyLeaf7 {
+    0% {
+        transform: scale(0) rotate(-60deg);
+        left: -123px;
+        bottom: 199px;
+    }
+    25% {
+        transform: scale(1.4) rotate(-62.5deg);
+        left: -128.5px;
+        bottom: 205.5px;
+    }
+    50% {
+        transform: scale(1.4) rotate(-65deg);
+        left: -134px;
+        bottom: 212px;
+    }
+    75% {
+        transform: scale(1.4) rotate(-67.5deg);
+        left: -144.5px;
+        bottom: 210.5px;
+    }
+    100% {
+        transform: scale(0) rotate(-70deg);
+        left: -155px;
+        bottom: 209px;
+    }
+}
+
+@keyframes flyLeaf6 {
+    0% {
+        transform: scale(0) rotate(-50deg);
+        left: -113px;
+        bottom: 209px;
+    }
+    15% {
+        transform: scale(1.2) rotate(-55.3deg);
+        left: -129.5px;
+        bottom: 212.6px;
+    }
+    70% {
+        transform: scale(1.2) rotate(-80deg);
+        left: -168px;
+        bottom: 221px;
+    }
+    85% {
+        transform: scale(1.2) rotate(-75deg);
+        left: -170px;
+        bottom: 226px;
+    }
+    100% {
+        transform: scale(0) rotate(-70deg);
+        left: -172px;
+        bottom: 231px;
+    }
+}
+
+@keyframes flyLeaf5 {
+    0% {
+        transform: scale(0) rotate(-63deg);
+        left: -124px;
+        bottom: 256px;
+    }
+    25% {
+        transform: scale(1) rotate(-65.7deg);
+        left: -130.5px;
+        bottom: 258px;
+    }
+    50% {
+        transform: scale(1.4) rotate(-68.5deg);
+        left: -137px;
+        bottom: 260px;
+    }
+    75% {
+        transform: scale(1.4) rotate(-71.2deg);
+        left: -143.5px;
+        bottom: 258px;
+    }
+    100% {
+        transform: scale(0) rotate(-74deg);
+        left: -150px;
+        bottom: 256px;
+    }
+}
+
+@keyframes flyLeaf4 {
+    0% {
+        transform: scale(0) rotate(-57deg);
+        left: -119px;
+        bottom: 307px;
+    }
+    33% {
+        transform: scale(2.2) rotate(-53deg);
+        left: -124px;
+        bottom: 312px;
+    }
+    66% {
+        transform: scale(2.2) rotate(-42deg);
+        left: -140px;
+        bottom: 327px;
+    }
+    100% {
+        transform: scale(0) rotate(-38deg);
+        left: -146px;
+        bottom: 339px;
+    }
+}
+
+@keyframes flyLeaf3 {
+    0% {
+        transform: scale(0) rotate(30deg);
+        left: -114px;
+        bottom: 352px;
+    }
+    33% {
+        transform: scale(1.5) rotate(10deg);
+        left: -121px;
+        bottom: 355px;
+    }
+    66% {
+        transform: scale(1.5) rotate(-35deg);
+        left: -140px;
+        bottom: 361px;
+    }
+    100% {
+        transform: scale(0) rotate(-60deg);
+        left: -153px;
+        bottom: 367px;
+    }
+}
+
+@keyframes flyLeaf2 {
+    0% {
+        transform: scale(0) rotate(-55deg);
+        left: -26px;
+        bottom: 366px;
+    }
+    25% {
+        transform: scale(1.2) rotate(-62.5deg);
+        left: -30px;
+        bottom: 369px;
+    }
+    50% {
+        transform: scale(1.2) rotate(-70deg);
+        left: -34px;
+        bottom: 372px;
+    }
+    75% {
+        transform: scale(1.2) rotate(-77.5deg);
+        left: -43px;
+        bottom: 369.5px;
+    }
+    100% {
+        transform: scale(0) rotate(-85deg);
+        left: -52px;
+        bottom: 367px;
+    }
+}
+
+@keyframes flyLeaf1 {
+    0% {
+        transform: scale(0) rotate(-60deg);
+        left: 67px;
+        bottom: 329px;
+    }
+    25% {
+        transform: scale(1.4) rotate(-62.5deg);
+        left: 64.5px;
+        bottom: 335px;
+    }
+    50% {
+        transform: scale(1.4) rotate(-65deg);
+        left: 62px;
+        bottom: 341px;
+    }
+    75% {
+        transform: scale(1.4) rotate(-67.5deg);
+        left: 57px;
+        bottom: 340px;
+    }
+    100% {
+        transform: scale(0) rotate(-70deg);
+        left: 52px;
+        bottom: 339px;
+    }
+}
+
+@keyframes round19 {
+    0% {
+        transform: scale(0);
+        left: -65px;
+        bottom: 142px;
+    }
+    50% {
+        transform: scale(0.8);
+        left: -77px;
+        bottom: 145px;
+    }
+    100% {
+        transform: scale(0);
+        left: -89px;
+        bottom: 148px;
+    }
+}
+
+@keyframes round18 {
+    0% {
+        transform: scale(0) rotate(0deg);
+    }
+    50% {
+        transform: scale(0.3) rotate(-90deg);
+    }
+    100% {
+        transform: scale(0) rotate(-230deg);
+    }
+}
+
+@keyframes round17 {
+    0% {
+        transform: scale(0);
+        left: -28px;
+        bottom: 197px;
+    }
+    50% {
+        transform: scale(0.3);
+        left: -29.5px;
+        bottom: 199.5px;
+    }
+    100% {
+        transform: scale(0);
+        left: -38px;
+        bottom: 202px;
+    }
+}
+
+@keyframes round16 {
+    0% {
+        transform: scale(0);
+        left: -18px;
+        bottom: 121px;
+    }
+    50% {
+        transform: scale(0.4);
+        left: -29.5px;
+        bottom: 116px;
+    }
+    100% {
+        transform: scale(0);
+        left: -41px;
+        bottom: 111px;
+    }
+}
+
+@keyframes round15 {
+    0% {
+        transform: scale(0);
+        left: -2px;
+    }
+    50% {
+        transform: scale(0.2);
+        left: -6px;
+    }
+    100% {
+        transform: scale(0);
+        left: -10px;
+    }
+}
+
+@keyframes round14 {
+    0% {
+        transform: scale(0);
+        left: 4px;
+        bottom: 147px;
+    }
+    50% {
+        transform: scale(0.9);
+        left: -8px;
+        bottom: 145px;
+    }
+    100% {
+        transform: scale(0);
+        left: -20px;
+        bottom: 143px;
+    }
+}
+
+@keyframes round13 {
+    0% {
+        transform: scale(0);
+        left: 41px;
+        bottom: 171px;
+    }
+    50% {
+        transform: scale(0.2);
+        left: 30.5px;
+        bottom: 174.5px;
+    }
+    100% {
+        transform: scale(0);
+        left: 20px;
+        bottom: 178px;
+    }
+}
+
+@keyframes round12 {
+    0% {
+        transform: scale(0);
+        left: 68px;
+        bottom: 240px;
+    }
+    50% {
+        transform: scale(0.4);
+        left: 63.5px;
+        bottom: 238.5px;
+    }
+    100% {
+        transform: scale(0);
+        left: 59px;
+        bottom: 237px;
+    }
+}
+
+@keyframes round11 {
+    0% {
+        transform: scale(0);
+        left: 88px;
+        bottom: 246px;
+    }
+    50% {
+        transform: scale(0.7);
+        left: 74px;
+        bottom: 248px;
+    }
+    100% {
+        transform: scale(0);
+        left: 60px;
+        bottom: 250px;
+    }
+}
+
+@keyframes round10 {
+    0% {
+        transform: scale(0);
+        left: 105px;
+        bottom: 256px;
+    }
+    50% {
+        transform: scale(0.3);
+        left: 96px;
+        bottom: 258.5px;
+    }
+    100% {
+        transform: scale(0);
+        left: 87px;
+        bottom: 261px;
+    }
+}
+
+@keyframes round9 {
+    0% {
+        transform: scale(0);
+        left: 106px;
+        bottom: 165px;
+    }
+    50% {
+        transform: scale(0.9);
+        left: 99.5px;
+        bottom: 168.5px;
+    }
+    100% {
+        transform: scale(0);
+        left: 93px;
+        bottom: 172px;
+    }
+}
+
+@keyframes round8 {
+    0% {
+        transform: scale(0);
+        left: 120px;
+        bottom: 210px;
+    }
+    50% {
+        transform: scale(0.4);
+        left: 115px;
+        bottom: 212.5px;
+    }
+    100% {
+        transform: scale(0);
+        left: 110px;
+        bottom: 215px;
+    }
+}
+
+@keyframes round7 {
+    0% {
+        transform: scale(0);
+        left: 123px;
+        bottom: 262px;
+    }
+    50% {
+        transform: scale(0.8);
+        left: 118px;
+        bottom: 264.5px;
+    }
+    100% {
+        transform: scale(0);
+        left: 113px;
+        bottom: 267px;
+    }
+}
+
+@keyframes round6 {
+    0% {
+        transform: scale(0);
+        left: 127px;
+        bottom: 199px;
+    }
+    50% {
+        transform: scale(0.5);
+        left: 118.5px;
+        bottom: 200.5px;
+    }
+    100% {
+        transform: scale(0);
+        left: 110px;
+        bottom: 202px;
+    }
+}
+
+@keyframes round5 {
+    0% {
+        transform: scale(0);
+        left: 132px;
+        bottom: 224px;
+    }
+    50% {
+        transform: scale(0.8);
+        left: 124.5px;
+        bottom: 219px;
+    }
+    100% {
+        transform: scale(0);
+        left: 117px;
+        bottom: 214px;
+    }
+}
+
+@keyframes round4 {
+    0% {
+        transform: scale(0);
+        left: 132px;
+    }
+    50% {
+        transform: scale(0.55);
+        left: 132px;
+    }
+    100% {
+        transform: scale(0);
+        left: 129px;
+    }
+}
+
+@keyframes round3 {
+    0% {
+        transform: scale(0);
+        left: 157px;
+        bottom: 112px;
+    }
+    50% {
+        transform: scale(0.2);
+        left: 139px;
+        bottom: 105px;
+    }
+    100% {
+        transform: scale(0);
+        left: 121px;
+        bottom: 98px;
+    }
+}
+
+@keyframes round2 {
+    0% {
+        transform: scale(0);
+        left: 154px;
+        bottom: 122px;
+    }
+    50% {
+        transform: scale(0.8);
+        left: 144px;
+        bottom: 119.5px;
+    }
+    100% {
+        transform: scale(0);
+        left: 134px;
+        bottom: 115px;
+    }
+}
+
+@keyframes round1 {
+    0% {
+        transform: scale(0);
+        left: 185px;
+        bottom: 193px;
+    }
+    50% {
+        transform: scale(0.5);
+        left: 174px;
+        bottom: 199.5px;
+    }
+    100% {
+        transform: scale(0);
+        left: 163px;
+        bottom: 206px;
     }
 }
 

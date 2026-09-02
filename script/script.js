@@ -1,4 +1,4 @@
-var nowVer = 1788285009226;
+var nowVer = 1788370921574;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -87,7 +87,7 @@ try {
     const fcBtn = document.querySelector(".fullscreen");
     var swVer = 1782053515028;
     var noticeVer = 6;
-    var noticeContent = { title: "更新公告", text: "修复技能课题点统计异常的问题\n\n导入数据增加兼容多多工具箱", showBtn: true };
+    var noticeContent = { title: "更新公告", text: "修复技能课题点统计异常的问题\n\n导入数据增加兼容多多工具箱\n\n启动时的加载动画替换成游戏内的样式", showBtn: true };
 
     async function checkUpdate() {
         try {
@@ -195,6 +195,24 @@ try {
             "/font-awesome-4/fonts/fontawesome-webfont.woff2?v=4.7.0",
             `/script/script.js?${nowVer}`,
             `/style.css?${nowVer}`,
+            "loading/back.png",
+            "loading/finishProgress.png",
+            "loading/progress.png",
+            "loading/front.png",
+            "loading/light.png",
+            "loading/round.png",
+            "loading/leaf/left1.png",
+            "loading/leaf/left2.png",
+            "loading/leaf/leftTop1.png",
+            "loading/leaf/leftTop2.png",
+            "loading/leaf/right.png",
+            "loading/leaf/rightTop1.png",
+            "loading/leaf/rightTop2.png",
+            "loading/leaf/rightTop3.png",
+            "loading/leaf/top1.png",
+            "loading/leaf/top2.png",
+            "loading/leaf/top3.png",
+            "loading/leaf/top4.png",
             "/typeIcon/冰.png",
             "/typeIcon/草.png",
             "/typeIcon/虫.png",
@@ -1385,6 +1403,7 @@ try {
 
     function loaded() {
         loading.classList.add("hide");
+        loading.classList.add("finish");
         let height = window.innerHeight;
         let width = window.innerWidth;
         if (height > width + (width / 10) && "ontouchstart" in window) {
@@ -1414,10 +1433,13 @@ try {
 
     function mustLoad(urls) {
         let done = 0;
+        const progress = document.querySelector("#loading .center .progress .box div");
         urls.forEach(url => {
             const img = new Image();
             img.onload = img.onerror = () => {
                 done++;
+                const percent = done / urls.length * 100;
+                progress.style.height = `${percent}%`;
                 if (done == urls.length) {
                     startLoadData();
                 }
@@ -1927,6 +1949,24 @@ try {
         });
         await checkUpdate();
         mustLoad([
+            "loading/back.png",
+            "loading/finishProgress.png",
+            "loading/progress.png",
+            "loading/front.png",
+            "loading/light.png",
+            "loading/round.png",
+            "loading/leaf/left1.png",
+            "loading/leaf/left2.png",
+            "loading/leaf/leftTop1.png",
+            "loading/leaf/leftTop2.png",
+            "loading/leaf/right.png",
+            "loading/leaf/rightTop1.png",
+            "loading/leaf/rightTop2.png",
+            "loading/leaf/rightTop3.png",
+            "loading/leaf/top1.png",
+            "loading/leaf/top2.png",
+            "loading/leaf/top3.png",
+            "loading/leaf/top4.png",
             "handbook/texture/select.png",
             "handbook/texture/SideBar.png",
             "handbook/texture/item/exp.png",
