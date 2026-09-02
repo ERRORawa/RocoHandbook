@@ -1,4 +1,4 @@
-var nowVer = 1788370921575;
+var nowVer = 1788370921577;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -1482,48 +1482,58 @@ try {
             }
             if (pet.diff) {
                 for (let i = 1; i <= pet.diff; i++) {
-                    urls.push(
-                        `/avatar/${key}-${i}.png?${version[0]}`,
-                        `/illustration/${key}-${i}.png?${version[1]}`
-                    );
-                    if (pet.yise) {
+                    if (parseInt(key) < 3000) {
                         urls.push(
-                            `/avatar/${key}-${i}-异色.png?${version[0]}`,
-                            `/illustration/${key}-${i}-异色.png?${version[1]}`
+                            `/avatar/${key}-${i}.png?${version[0]}`,
+                            `/illustration/${key}-${i}.png?${version[1]}`
                         );
+                        if (pet.yise) {
+                            urls.push(
+                                `/avatar/${key}-${i}-异色.png?${version[0]}`,
+                                `/illustration/${key}-${i}-异色.png?${version[1]}`
+                            );
+                        }
                     }
                 }
             }
             if (pet.lead) {
                 if (typeof pet.lead == "boolean") {
-                    urls.push(
-                        `/avatar/${key}-首领.png?${version[0]}`,
-                        `/illustration/${key}-首领.png?${version[1]}`
-                    );
-                    if (pet.yise) {
+                    if (parseInt(key) < 3000) {
                         urls.push(
-                            `/avatar/${key}-首领-异色.png?${version[0]}`,
-                            `/illustration/${key}-首领-异色.png?${version[1]}`
+                            `/avatar/${key}-首领.png?${version[0]}`,
+                            `/illustration/${key}-首领.png?${version[1]}`
                         );
+                        if (pet.yise) {
+                            urls.push(
+                                `/avatar/${key}-首领-异色.png?${version[0]}`,
+                                `/illustration/${key}-首领-异色.png?${version[1]}`
+                            );
+                        }
                     }
                 } else {
                     for (let i = 1; i <= pet.lead; i++) {
-                        urls.push(
-                            `/avatar/${key}-首领${i}.png?${version[0]}`,
-                            `/illustration/${key}-首领${i}.png?${version[1]}`
-                        );
-                        if (pet.yise) {
-                            `/avatar/${key}-首领${i}-异色.png?${version[0]}`,
-                            `/illustration/${key}-首领${i}-异色.png?${version[1]}`
+                        if (parseInt(key) < 3000) {
+                            urls.push(
+                                `/avatar/${key}-首领${i}.png?${version[0]}`,
+                                `/illustration/${key}-首领${i}.png?${version[1]}`
+                            );
+                            if (pet.yise) {
+                                urls.push(
+                                    `/avatar/${key}-首领${i}-异色.png?${version[0]}`,
+                                    `/illustration/${key}-首领${i}-异色.png?${version[1]}`
+                                );
+                            }
                         }
                     }
                 }
             }
             if (pet.yise) {
-                urls.push(
-                    `/avatar/${key}-异色.png?${version[0]}`,
-                    `/illustration/${key}-异色.png?${version[1]}`
-                );
+                if (parseInt(key) < 3000) {
+                    urls.push(
+                        `/avatar/${key}-异色.png?${version[0]}`,
+                        `/illustration/${key}-异色.png?${version[1]}`
+                    );
+                }
             }
             let petBox = document.createElement("div");
             petBox.classList.add("petBox");

@@ -7048,7 +7048,8 @@ var json = {
     },
     "3236": {
         "name": "星星眼",
-        "type": [""],
+        "type": ["幻"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
@@ -7366,7 +7367,8 @@ var json = {
     },
     "3542": {
         "name": "未完虫",
-        "type": [""],
+        "type": ["幽", "虫"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
@@ -7433,18 +7435,21 @@ var json = {
     "3574": {
         "name": "热团团",
         "type": ["火", "虫"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
     "3575": {
         "name": "焰米龙",
         "type": ["火", "虫"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
     "3576": {
         "name": "圣凯布米龙",
         "type": ["火", "虫"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
@@ -7480,13 +7485,15 @@ var json = {
     },
     "3589": {
         "name": "玳龟",
-        "type": [""],
+        "type": ["幻"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
     "3590": {
         "name": "玳塔",
-        "type": [""],
+        "type": ["幻"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
@@ -7714,13 +7721,15 @@ var json = {
     },
     "3663": {
         "name": "量风碗",
-        "type": [""],
+        "type": ["翼", "机械"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
     "3664": {
         "name": "测风蝉",
-        "type": [""],
+        "type": ["翼", "机械"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
@@ -7979,30 +7988,35 @@ var json = {
     "3764": {
         "name": "新月鹭",
         "type": ["翼", "冰"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
     "3765": {
         "name": "月辉鹭",
         "type": ["翼", "冰"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
     "3766": {
         "name": "月使鹭纳",
         "type": ["翼", "冰"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
     "3767": {
         "name": "章脑丸",
-        "type": [""],
+        "type": ["光", "水"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
     "3768": {
         "name": "智辉章脑",
-        "type": [""],
+        "type": ["光", "水"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
@@ -8020,37 +8034,42 @@ var json = {
     },
     "3771": {
         "name": "小浣蛋",
-        "type": [""],
+        "type": ["恶"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
     "3772": {
         "name": "黑手浣熊",
-        "type": [""],
+        "type": ["恶"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
     "3773": {
         "name": "幽铃",
-        "type": [""],
+        "type": ["幽"],
         "bg": 0,
         "class": []
     },
     "3774": {
         "name": "摇铃魔偶",
-        "type": [""],
+        "type": ["幽"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
     "3775": {
         "name": "布灵",
-        "type": [""],
+        "type": ["幻", "光"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
     "3776": {
         "name": "布灵布灵",
-        "type": [""],
+        "type": ["幻", "光"],
+        "yise": true,
         "bg": 0,
         "class": []
     },
