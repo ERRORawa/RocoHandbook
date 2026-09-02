@@ -593,8 +593,11 @@ body.rotate #loading .center {
 }
 
 #loading .loadFailed.show {
+    position: relative;
     display: flex;
     flex-direction: column;
+    color: white;
+    bottom: -150px;
 }
 
 #loading.hide {

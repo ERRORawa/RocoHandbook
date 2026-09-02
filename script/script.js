@@ -27,7 +27,7 @@ function clearCache() {
     location.reload();
 }
 
-try {
+try {a
     const app = document.querySelector("app");
     const loading = document.getElementById("loading");
     const petList = document.querySelector(".petList");
@@ -1987,7 +1987,6 @@ try {
 } catch (err) {
     const loading = document.getElementById("loading");
     if (!loading.classList.contains("hide")) {
-        loading.querySelector(".loadText").style.display = "none";
         loading.querySelector(".loadFailed").classList.add("show");
         console.error(`加载失败\n${err.message}`);
     } else {
