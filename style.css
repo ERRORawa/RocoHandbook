@@ -75,6 +75,14 @@ button {
     z-index: 40;
 }
 
+#loading.hide {
+    animation: loaded1 1s 0.7s forwards;
+}
+
+#loading.hide .center:first-child {
+    animation: loaded2 1s 0.7s forwards;
+}
+
 body.rotate #loading .center {
     transform: scale(0.5) rotate(-90deg);
 }
@@ -119,7 +127,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .progress .box div .finishProgress {
-    animation: finishProgress 0.9s 0.5s;
+    animation: finishProgress 0.9s;
 }
 
 #loading .center .leftTop2 img {
@@ -131,7 +139,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .leftTop2 img {
-    animation: finishLeaf 0.4s 0.56s forwards;
+    animation: finishLeaf 0.16s 0.16s forwards;
 }
 
 #loading .center .leftTop1 img {
@@ -143,7 +151,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .leftTop1 img {
-    animation: finishLeaf 0.4s 0.48s forwards;
+    animation: finishLeaf 0.16s 0.08s forwards;
 }
 
 #loading .center .left2 img {
@@ -155,7 +163,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .left2 img {
-    animation: finishLeaf 0.4s 0.56s forwards;
+    animation: finishLeaf 0.16s 0.16s forwards;
 }
 
 #loading .center .left1 img {
@@ -167,7 +175,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .left1 img {
-    animation: finishLeaf 0.4s 0.52s forwards;
+    animation: finishLeaf 0.16s 0.12s forwards;
 }
 
 #loading .center .top4 img {
@@ -179,7 +187,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .top4 img {
-    animation: finishLeaf 0.4s 0.52s forwards;
+    animation: finishLeaf 0.16s 0.12s forwards;
 }
 
 #loading .center .top3 img {
@@ -191,7 +199,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .top3 img {
-    animation: finishLeaf 0.4s 0.52s forwards;
+    animation: finishLeaf 0.16s 0.12s forwards;
 }
 
 #loading .center .top2 img {
@@ -203,7 +211,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .top2 img {
-    animation: finishLeaf 0.4s 0.48s forwards;
+    animation: finishLeaf 0.16s 0.08s forwards;
 }
 
 #loading .center .top1 img {
@@ -215,7 +223,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .top1 img {
-    animation: finishLeaf 0.4s 0.44s forwards;
+    animation: finishLeaf 0.16s 0.04s forwards;
 }
 
 #loading .center .rightTopLeaf3 img {
@@ -227,7 +235,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .rightTopLeaf3 img {
-    animation: finishLeaf 0.4s 0.56s forwards;
+    animation: finishLeaf 0.16s 0.16s forwards;
 }
 
 #loading .center .rightTopLeaf2 img {
@@ -239,7 +247,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .rightTopLeaf2 img {
-    animation: finishLeaf 0.5s 0.44s forwards;
+    animation: finishLeaf 0.2s 0.04s forwards;
 }
 
 #loading .center .rightTopLeaf1 img {
@@ -251,7 +259,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .rightTopLeaf1 img {
-    animation: finishLeaf 0.5s 0.4s forwards;
+    animation: finishLeaf 0.2s forwards;
 }
 
 #loading .center .rightLeaf img {
@@ -263,7 +271,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .rightLeaf img {
-    animation: finishLeaf 0.5s 0.4s forwards;
+    animation: finishLeaf 0.2s forwards;
 }
 
 #loading .center .flyLeaf8 img {
@@ -274,7 +282,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .flyLeaf8 img {
-    animation: flyLeaf8 0.6s 0.8s forwards linear;
+    animation: flyLeaf8 0.6s 0.3s forwards linear;
 }
 
 #loading .center .flyLeaf7 img {
@@ -285,7 +293,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .flyLeaf7 img {
-    animation: flyLeaf7 0.6s 0.8s forwards linear;
+    animation: flyLeaf7 0.6s 0.3s forwards linear;
 }
 
 #loading .center .flyLeaf6 img {
@@ -296,7 +304,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .flyLeaf6 img {
-    animation: flyLeaf6 0.7s 0.7s forwards linear;
+    animation: flyLeaf6 0.7s 0.2s forwards linear;
 }
 
 #loading .center .flyLeaf5 img {
@@ -307,7 +315,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .flyLeaf5 img {
-    animation: flyLeaf5 0.7s 0.7s forwards linear;
+    animation: flyLeaf5 0.7s 0.2s forwards linear;
 }
 
 #loading .center .flyLeaf4 img {
@@ -318,7 +326,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .flyLeaf4 img {
-    animation: flyLeaf4 0.7s 0.7s forwards linear;
+    animation: flyLeaf4 0.7s 0.2s forwards linear;
 }
 
 #loading .center .flyLeaf3 img {
@@ -329,7 +337,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .flyLeaf3 img {
-    animation: flyLeaf3 0.6s 0.7s forwards linear;
+    animation: flyLeaf3 0.6s 0.2s forwards linear;
 }
 
 #loading .center .flyLeaf2 img {
@@ -340,7 +348,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .flyLeaf2 img {
-    animation: flyLeaf2 0.6s 0.8s forwards linear;
+    animation: flyLeaf2 0.6s 0.3s forwards linear;
 }
 
 #loading .center .flyLeaf1 img {
@@ -351,7 +359,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .flyLeaf1 img {
-    animation: flyLeaf1 0.7s 0.7s forwards linear;
+    animation: flyLeaf1 0.7s 0.2s forwards linear;
 }
 
 #loading .center .round19 img {
@@ -362,7 +370,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round19 img {
-    animation: round19 1.4s 0.8s forwards linear;
+    animation: round19 1.2s 0.4s forwards linear;
 }
 
 #loading .center .round18 img {
@@ -374,7 +382,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round18 img {
-    animation: round18 1.3s 0.8s forwards linear;
+    animation: round18 1.1s 0.4s forwards linear;
 }
 
 #loading .center .round17 img {
@@ -385,7 +393,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round17 img {
-    animation: round17 1.3s 0.9s forwards linear;
+    animation: round17 1.1s 0.5s forwards linear;
 }
 
 #loading .center .round16 img {
@@ -396,7 +404,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round16 img {
-    animation: round16 1.6s 0.7s forwards linear;
+    animation: round16 1.4s 0.3s forwards linear;
 }
 
 #loading .center .round15 img {
@@ -407,7 +415,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round15 img {
-    animation: round15 0.7s 1s forwards linear;
+    animation: round15 0.5s 0.6s forwards linear;
 }
 
 #loading .center .round14 img {
@@ -418,7 +426,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round14 img {
-    animation: round14 1.6s 0.8s forwards linear;
+    animation: round14 1.4s 0.4s forwards linear;
 }
 
 #loading .center .round13 img {
@@ -429,7 +437,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round13 img {
-    animation: round13 1.4s 0.7s forwards linear;
+    animation: round13 1.2s 0.3s forwards linear;
 }
 
 #loading .center .round12 img {
@@ -440,7 +448,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round12 img {
-    animation: round12 1.2s 0.6s forwards linear;
+    animation: round12 1s 0.2s forwards linear;
 }
 
 #loading .center .round11 img {
@@ -451,7 +459,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round11 img {
-    animation: round11 1.7s 0.6s forwards linear;
+    animation: round11 1.5s 0.2s forwards linear;
 }
 
 #loading .center .round10 img {
@@ -462,7 +470,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round10 img {
-    animation: round10 1.5s 0.8s forwards linear;
+    animation: round10 1.3s 0.4s forwards linear;
 }
 
 #loading .center .round9 img {
@@ -473,7 +481,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round9 img {
-    animation: round9 1.1s 1.2s forwards linear;
+    animation: round9 0.9s 0.8s forwards linear;
 }
 
 #loading .center .round8 img {
@@ -484,7 +492,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round8 img {
-    animation: round8 1.7s 0.6s forwards linear;
+    animation: round8 1.5s 0.2s forwards linear;
 }
 
 #loading .center .round7 img {
@@ -495,7 +503,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round7 img {
-    animation: round7 1s 1.3s forwards linear;
+    animation: round7 0.8s 0.9s forwards linear;
 }
 
 #loading .center .round6 img {
@@ -506,7 +514,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round6 img {
-    animation: round6 1.1s 1.2s forwards linear;
+    animation: round6 0.9s 0.8s forwards linear;
 }
 
 #loading .center .round5 img {
@@ -517,7 +525,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round5 img {
-    animation: round5 1.2s 1.1s forwards linear;
+    animation: round5 1s 0.7s forwards linear;
 }
 
 #loading .center .round4 img {
@@ -529,7 +537,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round4 img {
-    animation: round4 1.3s 0.7s forwards linear;
+    animation: round4 1.1s 0.3s forwards linear;
 }
 
 #loading .center .round3 img {
@@ -540,7 +548,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round3 img {
-    animation: round3 1.6s 0.7s forwards linear;
+    animation: round3 1.4s 0.3s forwards linear;
 }
 
 #loading .center .round2 img {
@@ -551,7 +559,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round2 img {
-    animation: round2 1.3s 1s forwards linear;
+    animation: round2 1.1s 0.6s forwards linear;
 }
 
 #loading .center .round1 img {
@@ -562,7 +570,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .round1 img {
-    animation: round1 1.7s 0.6s forwards linear;
+    animation: round1 1.5s 0.2s forwards linear;
 }
 
 #loading .center .light div {
@@ -577,7 +585,7 @@ body.rotate #loading .center {
 }
 
 #loading.finish .center .light div {
-    animation: finishLight 0.6s 0.5s steps(1)
+    animation: finishLight 0.6s steps(1);
 }
 
 #loading .center .front img {
@@ -598,14 +606,6 @@ body.rotate #loading .center {
     flex-direction: column;
     color: white;
     bottom: -150px;
-}
-
-#loading.hide {
-    animation: loaded1 1s 1.2s forwards;
-}
-
-#loading.hide .center:first-child {
-    animation: loaded2 1s 1s forwards;
 }
 
 .panel {
@@ -1993,10 +1993,7 @@ body.rotate .sideBar .petList {
     0% {
         transform: scale(0) rotate(-10deg);
     }
-    60% {
-        transform: scale(0) rotate(-10deg);
-    }
-    80% {
+    50% {
         transform: scale(1.45) rotate(-5deg);
     }
     100% {

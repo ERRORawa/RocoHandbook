@@ -1,4 +1,4 @@
-var nowVer = 1788370921577;
+var nowVer = 1788458811512;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -1438,17 +1438,19 @@ try {
             const img = new Image();
             img.onload = img.onerror = () => {
                 done++;
-                const percent = done / urls.length * 100;
+                const percent = done / (urls.length + 5) * 100;
                 progress.style.height = `${percent}%`;
                 if (done == urls.length) {
-                    startLoadData();
+                    setTimeout(() => {
+                        startLoadData(progress);
+                    }, 500);
                 }
             }
             img.src = url;
         });
     }
 
-    async function startLoadData() {
+    async function startLoadData(loadProgress) {
         let urls = [];
         if (accessToken) {
             await checkData();
@@ -1683,7 +1685,10 @@ try {
         classProgressEle.innerText = `${classProgress[0]}/${classProgress[1]} (${classPercent}%)`;
         const pointPercent = Math.floor(pointProgress[0] / pointProgress[1] * 10000) / 100;
         pointProgressEle.innerText = `${pointProgress[0]}/${pointProgress[1]} (${pointPercent}%)`;
-        loaded();
+        loadProgress.style.height = "100%";
+        setTimeout(() => {
+            loaded();
+        }, 400);
     }
 
     search.addEventListener("keydown", (e) => {
