@@ -1,4 +1,4 @@
-var nowVer = 1788458811512;
+var nowVer = 1788607648381;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -582,6 +582,9 @@ try {
                 finish = [];
             }
             const pet = JSON.parse(JSON.stringify(json[id]));
+            for (let i = 0; i < pet.class.length; i++) {
+                pet.class[i][0] = pet.class[i][0].split("-")[0];
+            }
             setType(pet.type[0], pet.type[1]);
             backBG.style.backgroundImage = `url(handbook/BG/${pet.bg}.png?${version[3]}`;
             if (parseInt(id) < 3000) {
@@ -607,7 +610,6 @@ try {
                 content.appendChild(text);
                 content.appendChild(items);
                 Class.appendChild(checkbox);
-                pet.class[i][0] = pet.class[i][0].split("-")[0];
                 switch (pet.class[i][0]) {
                     case "1":
                         text.innerText = "捕捉1只精灵";
