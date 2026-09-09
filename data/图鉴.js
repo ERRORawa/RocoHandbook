@@ -3444,11 +3444,13 @@ var json = {
         "reverse": true,
         "bg": 1,
         "fruit": ["0216"],
+        "lead": true,
         "class": [
             ["1"],
             ["2"],
             ["5-3"],
             ["6-4"],
+            ["9-8"],
             ["10-5"],
             ["11-6-7",
                 [
@@ -3764,6 +3766,7 @@ var json = {
         "bg": 3,
         "fruit": ["0237"],
         "yise": true,
+        "lead": true,
         "diff": 1,
         "class": [
             ["1"],
@@ -3772,6 +3775,7 @@ var json = {
             ["6-4"],
             ["7-10"],
             ["8-5", "2"],
+            ["9-11"],
             ["10-6"],
             ["11-7-9",
                 [
@@ -4635,6 +4639,7 @@ var json = {
         "name": "小帕尔",
         "type": ["恶"],
         "bg": 7,
+        "yise": true,
         "class": [
             ["1"],
             ["2"],
@@ -4646,6 +4651,7 @@ var json = {
         "type": ["恶"],
         "reverse": true,
         "bg": 7,
+        "yise": true,
         "class": [
             ["1"],
             ["2"],
@@ -4657,6 +4663,7 @@ var json = {
         "type": ["恶"],
         "reverse": true,
         "bg": 7,
+        "yise": true,
         "class": [
             ["1"],
             ["2"],
@@ -7049,8 +7056,9 @@ var json = {
     "3236": {
         "name": "星星眼",
         "type": ["幻"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3236"],
+        "yise": true,
         "class": []
     },
     "3242": {
@@ -7368,8 +7376,9 @@ var json = {
     "3542": {
         "name": "未完虫",
         "type": ["幽", "虫"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3542"],
+        "yise": true,
         "class": []
     },
     "3543": {
@@ -7435,22 +7444,25 @@ var json = {
     "3574": {
         "name": "热团团",
         "type": ["火", "虫"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3574"],
+        "yise": true,
         "class": []
     },
     "3575": {
         "name": "焰米龙",
         "type": ["火", "虫"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3574"],
+        "yise": true,
         "class": []
     },
     "3576": {
         "name": "圣凯布米龙",
         "type": ["火", "虫"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3574"],
+        "yise": true,
         "class": []
     },
     "3580": {
@@ -7486,15 +7498,17 @@ var json = {
     "3589": {
         "name": "玳龟",
         "type": ["幻"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3589"],
+        "yise": true,
         "class": []
     },
     "3590": {
         "name": "玳塔",
         "type": ["幻"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3589"],
+        "yise": true,
         "class": []
     },
     "3623": {
@@ -7722,15 +7736,17 @@ var json = {
     "3663": {
         "name": "量风碗",
         "type": ["翼", "机械"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3663"],
+        "yise": true,
         "class": []
     },
     "3664": {
         "name": "测风蝉",
         "type": ["翼", "机械"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3663"],
+        "yise": true,
         "class": []
     },
     "3665": {
@@ -7988,36 +8004,41 @@ var json = {
     "3764": {
         "name": "新月鹭",
         "type": ["翼", "冰"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3764"],
+        "yise": true,
         "class": []
     },
     "3765": {
         "name": "月辉鹭",
         "type": ["翼", "冰"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3764"],
+        "yise": true,
         "class": []
     },
     "3766": {
         "name": "月使鹭纳",
         "type": ["翼", "冰"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3764"],
+        "yise": true,
         "class": []
     },
     "3767": {
         "name": "章脑丸",
         "type": ["光", "水"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3767"],
+        "yise": true,
         "class": []
     },
     "3768": {
         "name": "智辉章脑",
         "type": ["光", "水"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3767"],
+        "yise": true,
         "class": []
     },
     "3769": {
@@ -8035,42 +8056,49 @@ var json = {
     "3771": {
         "name": "小浣蛋",
         "type": ["恶"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3771"],
+        "yise": true,
         "class": []
     },
     "3772": {
         "name": "黑手浣熊",
         "type": ["恶"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3771"],
+        "yise": true,
         "class": []
     },
     "3773": {
         "name": "幽铃",
         "type": ["幽"],
         "bg": 0,
+        "fruit": ["3773"],
+        "yise": true,
         "class": []
     },
     "3774": {
         "name": "摇铃魔偶",
         "type": ["幽"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3773"],
+        "yise": true,
         "class": []
     },
     "3775": {
         "name": "布灵",
         "type": ["幻", "光"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3775"],
+        "yise": true,
         "class": []
     },
     "3776": {
         "name": "布灵布灵",
         "type": ["幻", "光"],
-        "yise": true,
         "bg": 0,
+        "fruit": ["3775"],
+        "yise": true,
         "class": []
     },
     "4094": {

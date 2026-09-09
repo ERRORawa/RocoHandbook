@@ -1,4 +1,4 @@
-var nowVer = 1788607648381;
+var nowVer = 1788966898043;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -61,7 +61,7 @@ try {
     const syncText = dataBox.querySelector(".syncLabel .sync");
     var accessToken = localStorage.getItem("cloudSaveToken") || "";
     var uploadTimer = null;
-    const version = [4, 7, 2, 1];  //头像、立绘、果实、背景
+    const version = [4, 8, 2, 1];  //头像、立绘、果实、背景
     const filterContent = {
         "class": [],
         "types": [],
@@ -892,29 +892,56 @@ try {
                         let resName = preResName + ".png";
                         avatar.onerror = function() {
                             avatar.onerror = null;
-                            avatar.src = `avatar/${id}.png?${version[0]}`;
+                            if (parseInt(id) < 3000) {
+                                avatar.src = `avatar/${id}.png?${version[0]}`;
+                            } else {
+                                avatar.src = `createJSON/avatar/${id}.png`;
+                            }
                         }
-                        avatar.src = `avatar/${resName}?${version[0]}`;
+                        if (parseInt(id) < 3000) {
+                            avatar.src = `avatar/${resName}?${version[0]}`;
+                        } else {
+                            avatar.src = `createJSON/avatar/${resName}`;
+                        }
                     };
                     let resName = preResName + yise + ".png";
-                    avatar.src = `avatar/${resName}?${version[0]}`;
+                    if (parseInt(id) < 3000) {
+                        avatar.src = `avatar/${resName}?${version[0]}`;
+                    } else {
+                        avatar.src = `createJSON/avatar/${resName}`;
+                    }
                     const setImg = new Image();
                     setImg.onload = () => {
-                        backImg.style.backgroundImage = `url(illustration/${resName}?${version[1]})`;
+                        if (parseInt(id) < 3000) {
+                            backImg.style.backgroundImage = `url(illustration/${resName}?${version[1]})`;
+                        } else {
+                            backImg.style.backgroundImage = `url(createJSON/illustration/${resName})`;
+                        }
                         setReverse(pet, preResName);
                     }
                     setImg.onerror = () => {
                         let resName = preResName + ".png";
                         setImg.onload = () => {
-                            backImg.style.backgroundImage = `url(illustration/${resName}?${version[1]})`;
+                            if (parseInt(id) < 3000) {
+                                backImg.style.backgroundImage = `url(illustration/${resName}?${version[1]})`;
+                            } else {
+                                backImg.style.backgroundImage = `url(createJSON/illustration/${resName})`;
+                            }
                             setReverse(pet, preResName);
                         }
                         setImg.onerror = () => {
-                            backImg.style.backgroundImage = `url(illustration/${id}.png?${version[1]})`;
+                            if (parseInt(id) < 3000) {
+                                backImg.style.backgroundImage = `url(illustration/${id}.png?${version[1]})`;
+                            } else {
+                                backImg.style.backgroundImage = `url(createJSON/illustration/${id}.png)`;
+                            }
                         }
-                        setImg.src = `illustration/${resName}?${version[1]}`;
                     }
-                    setImg.src = `illustration/${resName}?${version[1]}`;
+                    if (parseInt(id) < 3000) {
+                        setImg.src = `illustration/${resName}?${version[1]}`;
+                    } else {
+                        setImg.src = `createJSON/illustration/${resName}`;
+                    }
                 }
                 function checkDiff(diffInfo) {
                     if (diff[id + diffT] != undefined) {
@@ -1092,7 +1119,11 @@ try {
                         }
                         let fruitEle = document.createElement("div");
                         fruitEle.classList.add("fruit");
-                        fruitEle.style.backgroundImage = `url(fruits/${num}.png?${version[2]})`;
+                        if (parseInt(id) < 3000) {
+                            fruitEle.style.backgroundImage = `url(fruits/${num}.png?${version[2]})`;
+                        } else {
+                            fruitEle.style.backgroundImage = `url(createJSON/fruits/${num}.png)`;
+                        }
                         fruitEle.addEventListener("click", () => {
                             showAlertBox("fruit", { id: num, name: name, title: `${name}的果实` });
                         });
