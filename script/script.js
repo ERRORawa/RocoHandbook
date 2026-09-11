@@ -703,7 +703,11 @@ try {
                     const image = document.createElement("img");
                     countText.innerText = `×1`;
                     if (_item[0] == "fruit") {
-                        image.src = `fruits/${pet.fruit[0]}.png?${version[2]}`;
+                        try {
+                            image.src = `fruits/${pet.fruit[0]}.png?${version[2]}`;
+                        } catch {
+                            console.error(`${id} 的果实贴图不存在`);
+                        }
                     } else if (_item[0] == "skillStone") {
                         image.src = `handbook/texture/item/stone/${_item[1]}.png`;
                     } else if (_item[0] == "skillRecipe") {
