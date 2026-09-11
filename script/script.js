@@ -1,4 +1,4 @@
-var nowVer = 1789130738496;
+var nowVer = 1789132665076;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -61,7 +61,7 @@ try {
     const syncText = dataBox.querySelector(".syncLabel .sync");
     var accessToken = localStorage.getItem("cloudSaveToken") || "";
     var uploadTimer = null;
-    const version = [4, 8, 2, 1];  //头像、立绘、果实、背景
+    const version = [5, 9, 2, 1];  //头像、立绘、果实、背景
     const filterContent = {
         "class": [],
         "types": [],
@@ -86,8 +86,8 @@ try {
     const noNetworkText = document.querySelector(".noNetwork");
     const fcBtn = document.querySelector(".fullscreen");
     var swVer = 1782053515028;
-    var noticeVer = 6;
-    var noticeContent = { title: "更新公告", text: "修复技能课题点统计异常的问题\n\n导入数据增加兼容多多工具箱\n\n启动时的加载动画替换成游戏内的样式", showBtn: true };
+    var noticeVer = 7;
+    var noticeContent = { title: "更新公告", text: "添加S4赛季数据\n\n搜索功能允许搜索首领化和其它形态的名称", showBtn: true };
 
     async function checkUpdate() {
         try {
@@ -1198,7 +1198,7 @@ try {
                         search.value = "";
                         idNotFound = false;
                     }
-                } else if (!petName.textContent.includes(searchValue)) {
+                } else if (!petName.getAttribute("search").includes(searchValue)) {
                     idNotFound = false;
                     isHide = true;
                 }
@@ -1590,6 +1590,17 @@ try {
             let name = document.createElement("p");
             name.classList.add("name");
             name.innerText = pet.name;
+            let searchAttribute = [pet.name];
+            Object.keys(nick).forEach(nickID => {
+                if (nickID.includes(key)) {
+                    if (typeof nick[nickID] == "string") {
+                        searchAttribute.push(nick[nickID]);
+                    } else {
+                        searchAttribute.push(nick[nickID][0]);
+                    }
+                }
+            });
+            name.setAttribute("search", searchAttribute.join("~"));
             let avatarBox = document.createElement("div");
             avatarBox.classList.add("avatarBox");
             let avatar = document.createElement("img");
