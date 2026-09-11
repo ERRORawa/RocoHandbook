@@ -1,4 +1,4 @@
-var nowVer = 1789132665076;
+var nowVer = 1789144779243;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -86,8 +86,8 @@ try {
     const noNetworkText = document.querySelector(".noNetwork");
     const fcBtn = document.querySelector(".fullscreen");
     var swVer = 1782053515028;
-    var noticeVer = 7;
-    var noticeContent = { title: "更新公告", text: "添加S4赛季数据\n\n搜索功能允许搜索首领化和其它形态的名称", showBtn: true };
+    var noticeVer = 8;
+    var noticeContent = { title: "更新公告", text: "添加S4赛季数据\n\n搜索功能允许搜索首领化和其它形态的名称\n\n移除「命定勇者」课题的分光水晶", showBtn: true };
 
     async function checkUpdate() {
         try {
@@ -677,7 +677,6 @@ try {
                     case "10":
                         text.innerText = "获得「命定勇者」奖牌";
                         item = [
-                            ["crystal", 300],
                             ["point", 50]
                         ]
                         break;
@@ -1669,7 +1668,6 @@ try {
                             break;
                         case "10":
                             point = 50;
-                            collect = ["crystal", 300];
                             break;
                         case "11":
                             point = item[1].length * 10;
@@ -1677,7 +1675,7 @@ try {
                             break;
                     }
                     pointProgress[1] += point;
-                    if (collect[0] != "recipe") {
+                    if (collect[0] != "recipe" && collect[0] != "") {
                         collectProgress[collect[0]][1] += collect[1];
                     }
                     try {
