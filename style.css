@@ -1796,6 +1796,7 @@ body.rotate .sideBar .petList {
 
 .petClass .classBox.preview .classContent {
     opacity: 0;
+    pointer-events: none;
 }
 
 .petClass .classBox .classContent .class {

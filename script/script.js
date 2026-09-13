@@ -1,4 +1,4 @@
-var nowVer = 1789226976926;
+var nowVer = 1789289069649;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -42,10 +42,10 @@ try {
     const classBox = petClass.querySelector(".classBox");
     const backBG = classBox.querySelector(".backBG");
     const backImg = classBox.querySelector(".backImg");
+    var isPreview = false;
     const classContent = classBox.querySelector(".classContent");
     const className = petClass.querySelector(".className span");
     const search = document.querySelector(".search");
-    const loadFile = document.querySelector(".loadFile");
     const filterBtn = document.querySelector(".filterBtn");
     const filterPetsCount = document.querySelector(".filterPetsCount span");
     const filterBox = document.querySelector("#filterPanel .box");
@@ -86,8 +86,8 @@ try {
     const noNetworkText = document.querySelector(".noNetwork");
     const fcBtn = document.querySelector(".fullscreen");
     var swVer = 1782053515028;
-    var noticeVer = 8;
-    var noticeContent = { title: "更新公告", text: "添加S4赛季数据\n\n搜索功能允许搜索首领化和其它形态的名称\n\n移除「命定勇者」课题的分光水晶", showBtn: true };
+    var noticeVer = 9;
+    var noticeContent = { title: "更新公告", text: "添加S4赛季数据\n\n搜索功能允许搜索首领化和其它形态的名称\n\n移除「命定勇者」课题的分光水晶\n\n在展开更多信息面板时，切换精灵不会再强制收回面板", showBtn: true };
 
     async function checkUpdate() {
         try {
@@ -564,9 +564,11 @@ try {
         }
         petBox.classList.add("select");
         petClass.classList.add("switch"); 
-        infoPanel.classList.remove("show");
-        moreInfoBtn.innerHTML = "&#xf129";
-        classBox.classList.remove("preview");
+        if (!isPreview) {
+            infoPanel.classList.remove("show");
+            moreInfoBtn.innerHTML = "&#xf129";
+            classBox.classList.remove("preview");
+        }
         setTimeout(() => {
             if (json[id].class.length == 0) {
                 infoPanel.classList.add("show");
@@ -1139,6 +1141,12 @@ try {
                 moreInfoBtn.classList.add("noInfo");
             }
             petClass.classList.remove("switch");
+            if (moreInfoBtn.classList.contains("noInfo") && json[id].class.length != 0) {
+                isPreview = false;
+                infoPanel.classList.remove("show");
+                moreInfoBtn.innerHTML = "&#xf129";
+                classBox.classList.remove("preview");
+            }
         }, 200);
     }
 
@@ -1366,9 +1374,11 @@ try {
         if (infoPanel.classList.contains("show")) {
             moreInfoBtn.innerHTML = "&#xf00d";
             classBox.classList.add("preview");
+            isPreview = true;
         } else {
             moreInfoBtn.innerHTML = "&#xf129";
             classBox.classList.remove("preview");
+            isPreview = false;
         }
     }
 
@@ -1692,13 +1702,13 @@ try {
                                     finishL++;
                                     pointProgress[0] += point;
                                 }
-                                if (collect[0] != "recipe") {
+                                if (collect[0] != "recipe" && collect[0] != "") {
                                     collectProgress[collect[0]][0] += collect[1];
                                 }
                             }
                         });
                     } catch (err) {
-                        console.error(err.message);
+                        console.error(`收集统计出错：${collect[0]}`);
                     }
                 });
                 if (finishL == allL && allL != 0) {
