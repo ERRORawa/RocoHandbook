@@ -1,4 +1,4 @@
-var nowVer = 1789289069649;
+var nowVer = 1790501183863;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
