@@ -1,4 +1,4 @@
-var nowVer = 1790501183863;
+var nowVer = 1790947752646;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -841,6 +841,7 @@ try {
             let infoPanelHeight = 20;
             let diffName = document.createElement("p");
             diffName.classList.add("diffName");
+            let yiseEle = null;
             let diffT = "";
             let yise = "";
             infoContent.classList.add("infoContent");
@@ -917,6 +918,9 @@ try {
                     }
                     const setImg = new Image();
                     setImg.onload = () => {
+                        if (yiseEle != null) {
+                            yiseEle.style.opacity = "1";
+                        }
                         if (parseInt(id) < 3000) {
                             backImg.style.backgroundImage = `url(illustration/${resName}?${version[1]})`;
                         } else {
@@ -925,6 +929,9 @@ try {
                         setReverse(pet, preResName);
                     }
                     setImg.onerror = () => {
+                        if (yiseEle != null) {
+                            yiseEle.style.opacity = "0.5";
+                        }
                         let resName = preResName + ".png";
                         setImg.onload = () => {
                             if (parseInt(id) < 3000) {
@@ -940,6 +947,11 @@ try {
                             } else {
                                 backImg.style.backgroundImage = `url(createJSON/illustration/${id}.png)`;
                             }
+                        }
+                        if (parseInt(id) < 3000) {
+                            setImg.src = `illustration/${resName}?${version[1]}`;
+                        } else {
+                            setImg.src = `createJSON/illustration/${resName}`;
                         }
                     }
                     if (parseInt(id) < 3000) {
@@ -1090,7 +1102,7 @@ try {
                     title.classList.add("yiseTitle");
                     title.innerText = "异色";
                     infoContent.appendChild(title);
-                    let yiseEle = document.createElement("div");
+                    yiseEle = document.createElement("div");
                     yiseEle.classList.add("yise");
                     yiseEle.style.backgroundImage = "url(handbook/texture/yiseOff.png)";
                     yiseEle.addEventListener("click", () => {

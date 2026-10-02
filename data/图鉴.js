@@ -757,6 +757,7 @@ var json = {
         "type": ["火"],
         "bg": 10,
         "fruit": ["0047"],
+        "diff": 1,
         "yise": true,
         "class": [
             ["1"],
@@ -769,6 +770,7 @@ var json = {
         "type": ["火"],
         "bg": 10,
         "fruit": ["0047"],
+        "diff": 1,
         "lead": true,
         "yise": true,
         "class": [
@@ -2548,6 +2550,7 @@ var json = {
         "type": ["普通"],
         "bg": 1,
         "fruit": ["0162"],
+        "diff": 1,
         "yise": true,
         "class": [
             ["1"],
@@ -7319,8 +7322,7 @@ var json = {
             ["2"],
             ["5-3"],
             ["6-4"],
-            ["7-5"],
-            ["10-6"]
+            ["10-5"]
         ]
     },
     "3009": {
