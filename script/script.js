@@ -1,4 +1,4 @@
-var nowVer = 1790947752647;
+var nowVer = 1791031948918;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -981,7 +981,11 @@ try {
                     diffInfo.classList.add("diffInfo");
                     diffInfo.innerText = "获取方式";
                     diffInfo.addEventListener("click", () => {
-                        showAlertBox("diff", { id: id + diffT });
+                            if (diff[id + diffT + yise] != undefined) {
+                                showAlertBox("diff", { id: id + diffT + yise });
+                            } else {
+                                showAlertBox("diff", { id: id + diffT }); 
+                            }
                     });
                     let diffEle = document.createElement("div");
                     diffEle.classList.add("diff");
@@ -1038,7 +1042,11 @@ try {
                     } else {
                         diffEle.classList.add("show");
                         diffEle.addEventListener("click", () => {
-                            showAlertBox("diff", { id: id }); 
+                            if (diff[id + yise] != undefined) {
+                                showAlertBox("diff", { id: id + yise });
+                            } else {
+                                showAlertBox("diff", { id: id }); 
+                            }
                         });
                     }
                     infoContent.appendChild(diffEle);
