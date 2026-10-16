@@ -1,4 +1,4 @@
-var nowVer = 1792161892972;
+var nowVer = 1792161892973;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -85,7 +85,7 @@ try {
     const alertPanel = document.querySelector("#alertPanel");
     const noNetworkText = document.querySelector(".noNetwork");
     const fcBtn = document.querySelector(".fullscreen");
-    var swVer = 1792162122628;
+    var swVer = 1792162122629;
     var noticeVer = 11;
     var noticeContent = { title: "更新公告", text: "添加“秋，丰收与机器人”活动中的精灵形态数据\n\n添加 467 云梦豚 贴图\n\n修复从多多工具箱导入“238 月亮砣”的课题错误", showBtn: true };
 
@@ -195,24 +195,24 @@ try {
             "/font-awesome-4/fonts/fontawesome-webfont.woff2?v=4.7.0",
             `/script/script.js?${nowVer}`,
             `/style.css?${nowVer}`,
-            "loading/back.png",
-            "loading/finishProgress.png",
-            "loading/progress.png",
-            "loading/front.png",
-            "loading/light.png",
-            "loading/round.png",
-            "loading/leaf/left1.png",
-            "loading/leaf/left2.png",
-            "loading/leaf/leftTop1.png",
-            "loading/leaf/leftTop2.png",
-            "loading/leaf/right.png",
-            "loading/leaf/rightTop1.png",
-            "loading/leaf/rightTop2.png",
-            "loading/leaf/rightTop3.png",
-            "loading/leaf/top1.png",
-            "loading/leaf/top2.png",
-            "loading/leaf/top3.png",
-            "loading/leaf/top4.png",
+            "/loading/back.png",
+            "/loading/finishProgress.png",
+            "/loading/progress.png",
+            "/loading/front.png",
+            "/loading/light.png",
+            "/loading/round.png",
+            "/loading/leaf/left1.png",
+            "/loading/leaf/left2.png",
+            "/loading/leaf/leftTop1.png",
+            "/loading/leaf/leftTop2.png",
+            "/loading/leaf/right.png",
+            "/loading/leaf/rightTop1.png",
+            "/loading/leaf/rightTop2.png",
+            "/loading/leaf/rightTop3.png",
+            "/loading/leaf/top1.png",
+            "/loading/leaf/top2.png",
+            "/loading/leaf/top3.png",
+            "/loading/leaf/top4.png",
             "/typeIcon/冰.png",
             "/typeIcon/草.png",
             "/typeIcon/虫.png",

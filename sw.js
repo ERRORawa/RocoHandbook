@@ -15,17 +15,21 @@ self.addEventListener("message", async (event) => {
                     const fullURL = new URL(location + url).href;
                     urls.push(fullURL);
                     if (cachedURLs.includes(fullURL)) {
+                        let isSkip = true;
                         if (url.includes(".png")) {
                             const test = await cache.match(url);
                             if (test != undefined) {
                                 if (!test.headers.get("Content-Type").includes("image")) {
                                     console.log("移除错误资源:", url);
                                     await cache.delete(url);
+                                    isSkip = false;
                                 }
                             }
                         }
-                        console.log("skip");
-                        continue;
+                        if (isSkip) {
+                            console.log("skip");
+                            continue;
+                        }
                     }
                     try {
                         const originalResponse = await fetch(url);
