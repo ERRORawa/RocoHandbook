@@ -1,4 +1,4 @@
-var nowVer = 1792161892973;
+var nowVer = 1792161892974;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -231,11 +231,12 @@ try {
             "/typeIcon/武.png",
             "/typeIcon/翼.png",
             "/typeIcon/幽.png",
-            "/handbook/texture/finish.png",
-            "/handbook/texture/select.png",
-            "/handbook/texture/SideBar.png",
             "/handbook/texture/diffOff.png",
             "/handbook/texture/diffOn.png",
+            "/handbook/texture/finish.png",
+            "/handbook/texture/itemBack.png",
+            "/handbook/texture/select.png",
+            "/handbook/texture/SideBar.png",
             "/handbook/texture/yiseOff.png",
             "/handbook/texture/yiseOn.png",
             "/handbook/texture/item/crystal.png",
