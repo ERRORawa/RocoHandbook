@@ -21,6 +21,16 @@ self.addEventListener("message", async (event) => {
                     try {
                         const originalResponse = await fetch(url);
                         if (originalResponse.ok) {
+                            if (url.includes("png") && !originalResponse.headers.get("Content-Type").includes("image")) {
+                                const test = await cache.match(url);
+                                if (test != undefined) {
+                                    if (!test.headers.get("Content-Type").includes("image")) {
+                                        console.log("移除错误资源:", url);
+                                        await cache.delete(url);
+                                    }
+                                }
+                                continue;
+                            }
                             const body = await originalResponse.blob();
                             const safeResponse = new Response(body, {
                                 status: originalResponse.status,

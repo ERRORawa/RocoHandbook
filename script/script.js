@@ -85,7 +85,7 @@ try {
     const alertPanel = document.querySelector("#alertPanel");
     const noNetworkText = document.querySelector(".noNetwork");
     const fcBtn = document.querySelector(".fullscreen");
-    var swVer = 1782053515028;
+    var swVer = 1792162122627;
     var noticeVer = 11;
     var noticeContent = { title: "更新公告", text: "添加“秋，丰收与机器人”活动中的精灵形态数据\n\n添加 467 云梦豚 贴图\n\n修复从多多工具箱导入“238 月亮砣”的课题错误", showBtn: true };
 
