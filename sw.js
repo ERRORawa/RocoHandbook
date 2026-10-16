@@ -15,6 +15,15 @@ self.addEventListener("message", async (event) => {
                     const fullURL = new URL(location + url).href;
                     urls.push(fullURL);
                     if (cachedURLs.includes(fullURL)) {
+                        if (url.includes(".png")) {
+                            const test = await cache.match(url);
+                            if (test != undefined) {
+                                if (!test.headers.get("Content-Type").includes("image")) {
+                                    console.log("移除错误资源:", url);
+                                    await cache.delete(url);
+                                }
+                            }
+                        }
                         console.log("skip");
                         continue;
                     }
@@ -22,13 +31,6 @@ self.addEventListener("message", async (event) => {
                         const originalResponse = await fetch(url);
                         if (originalResponse.ok) {
                             if (url.includes("png") && !originalResponse.headers.get("Content-Type").includes("image")) {
-                                const test = await cache.match(url);
-                                if (test != undefined) {
-                                    if (!test.headers.get("Content-Type").includes("image")) {
-                                        console.log("移除错误资源:", url);
-                                        await cache.delete(url);
-                                    }
-                                }
                                 continue;
                             }
                             const body = await originalResponse.blob();
