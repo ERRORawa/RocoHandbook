@@ -3062,6 +3062,7 @@ var json = {
         "type": ["地"],
         "bg": 10,
         "fruit": ["0193"],
+        "diff": 1,
         "class": [
             ["1"],
             ["2"],
@@ -3073,6 +3074,7 @@ var json = {
         "type": ["地"],
         "bg": 10,
         "fruit": ["0193"],
+        "diff": 1,
         "class": [
             ["1"],
             ["2"],
@@ -3182,6 +3184,7 @@ var json = {
         "type": ["地", "草"],
         "bg": 1,
         "fruit": ["0201"],
+        "diff": 1,
         "class": [
             ["1"],
             ["2"],
@@ -3193,6 +3196,7 @@ var json = {
         "type": ["地", "草"],
         "bg": 1,
         "fruit": ["0201"],
+        "diff": 1,
         "class": [
             ["1"],
             ["2"],
@@ -6832,6 +6836,7 @@ var json = {
         "reverse": true,
         "bg": 16,
         "fruit": ["0436"],
+        "diff": 1,
         "yise": true,
         "class": [
             ["1"],
@@ -6845,6 +6850,7 @@ var json = {
         "reverse": true,
         "bg": 16,
         "fruit": ["0436"],
+        "diff": 1,
         "yise": true,
         "class": [
             ["1"],
@@ -7307,6 +7313,8 @@ var json = {
         "name": "云梦豚",
         "type": ["水"],
         "bg": 3,
+        "fruit": ["0467"],
+        "yise": true,
         "class": [
             ["1"],
             ["2"],
@@ -7317,6 +7325,8 @@ var json = {
         "name": "长江豚",
         "type": ["水"],
         "bg": 3,
+        "fruit": ["0467"],
+        "yise": true,
         "class": [
             ["1"],
             ["2"],
