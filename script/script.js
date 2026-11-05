@@ -1,4 +1,4 @@
-var nowVer = 1793528517313;
+var nowVer = 1793874820851;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -86,8 +86,8 @@ try {
     const noNetworkText = document.querySelector(".noNetwork");
     const fcBtn = document.querySelector(".fullscreen");
     var swVer = 1792162122629;
-    var noticeVer = 12;
-    var noticeContent = { title: "更新公告", text: "添加“秋，丰收与机器人”活动中的精灵形态数据\n\n添加部分S5赛季异色、首领数据", showBtn: true };
+    var noticeVer = 13;
+    var noticeContent = { title: "更新公告", text: "添加部分S5赛季数据", showBtn: true };
 
     async function checkUpdate() {
         try {
