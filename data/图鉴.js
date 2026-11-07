@@ -7483,7 +7483,7 @@ var json = {
     "0479": {
         "name": "蛋包蛋",
         "type": [""],
-        "bg": 0,
+        "bg": 1,
         "fruit": ["0479"],
         "yise": true,
         "class": [
@@ -7495,7 +7495,7 @@ var json = {
     "0480": {
         "name": "鸡麻麻",
         "type": [""],
-        "bg": 0,
+        "bg": 1,
         "fruit": ["0479"],
         "yise": true,
         "class": [
