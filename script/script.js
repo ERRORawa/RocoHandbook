@@ -1,4 +1,4 @@
-var nowVer = 1794042111038;
+var nowVer = 1794044711389;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -86,8 +86,8 @@ try {
     const noNetworkText = document.querySelector(".noNetwork");
     const fcBtn = document.querySelector(".fullscreen");
     var swVer = 1792162122629;
-    var noticeVer = 14;
-    var noticeContent = { title: "更新公告", text: "添加部分S5赛季数据\n\nS5数据持续补充中……", showBtn: true };
+    var noticeVer = 15;
+    var noticeContent = { title: "更新公告", text: "可记住关闭前选中的精灵ID\n\n添加部分S5赛季数据\n\nS5数据持续补充中……", showBtn: true };
 
     async function checkUpdate() {
         try {
@@ -351,7 +351,7 @@ try {
         });
         let resData = await shaRes.json();
         let sha = resData.sha;
-        let response = await fetch(`https://gitee.com/api/v5/repos/${userName}/rocoSave/contents/save.json`, {
+        await fetch(`https://gitee.com/api/v5/repos/${userName}/rocoSave/contents/save.json`, {
             "method": "PUT",
             headers: {
                 "Authorization": `token ${accessToken}`,
@@ -1168,6 +1168,7 @@ try {
                 moreInfoBtn.innerHTML = "&#xf129";
                 classBox.classList.remove("preview");
             }
+            localStorage.setItem("nowSelect", id);
         }, 200);
     }
 
@@ -1529,6 +1530,10 @@ try {
                 delete(localStorage[key]);
             }
         });
+        let nowSelect = localStorage.getItem("nowSelect") || "0001";
+        if (parseInt(nowSelect) >= 3000) {
+            nowSelect = "0001";
+        }
         Object.keys(json).forEach(async key => {
             if (parseInt(key) < 3000) {
                 urls.push(
@@ -1755,10 +1760,13 @@ try {
             petBox.addEventListener("click", () => {
                 setClass(petBox, key);
             })
-            if (key == "0001") {
+            if (key == nowSelect) {
                 setClass(petBox, key);
             }
         });
+        if (petList.querySelector(".select") == null) {
+            setClass(document.querySelector(".petBox:not(.dev)"), "0001");
+        }
         if (window.location.host != "127.0.0.1:3000" && noNetworkText.style.display != "") preload(urls);
         const classPercent = Math.floor(classProgress[0] / classProgress[1] * 10000) / 100;
         classProgressEle.innerText = `${classProgress[0]}/${classProgress[1]} (${classPercent}%)`;
