@@ -1,4 +1,4 @@
-var nowVer = 1794211605603;
+var nowVer = 1794993571370;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -1761,12 +1761,16 @@ try {
                 setClass(petBox, key);
             })
             if (key == nowSelect) {
-                setClass(petBox, key);
+                setTimeout(() => {
+                    setClass(petBox, key);
+                }, 1000);
             }
         });
-        if (petList.querySelector(".select") == null) {
-            setClass(document.querySelector(".petBox:not(.dev)"), "0001");
-        }
+        setTimeout(() => {
+            if (petList.querySelector(".select") == null) {
+                setClass(document.querySelector(".petBox:not(.dev)"), "0001");
+            }
+        }, 1000);
         if (window.location.host != "127.0.0.1:3000" && noNetworkText.style.display != "") preload(urls);
         const classPercent = Math.floor(classProgress[0] / classProgress[1] * 10000) / 100;
         classProgressEle.innerText = `${classProgress[0]}/${classProgress[1]} (${classPercent}%)`;
