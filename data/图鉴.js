@@ -7743,6 +7743,7 @@ var json = {
         "type": ["龙"],
         "reverse": true,
         "bg": 6,
+        "lead": true,
         "class": [
             ["1"],
             ["2"]
