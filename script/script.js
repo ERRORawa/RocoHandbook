@@ -1,4 +1,4 @@
-var nowVer = 1795774880824;
+var nowVer = 1795777942466;
 var dataJSON = [["图鉴", "地区", "果实", "形态", "别称"], ["json", "book", "fruit", "diff", "nick"]];
 
 function clearCache() {
@@ -86,8 +86,8 @@ try {
     const noNetworkText = document.querySelector(".noNetwork");
     const fcBtn = document.querySelector(".fullscreen");
     var swVer = 1792162122629;
-    var noticeVer = 17;
-    var noticeContent = { title: "更新公告", text: "添加御三家“陪伴阿布的样子”数据", showBtn: true };
+    var noticeVer = 18;
+    var noticeContent = { title: "更新公告", text: "添加\n御三家“陪伴阿布的样子”数据\n254 冰钻布鲁斯 首领化课题\n更多未上线精灵\n\n修正\n473 地绡银龙 技能名\n476 龙嵴金脉技能名\n478 阿瓦鲨技能顺序\n491 滴溜豚名字", showBtn: true };
 
     async function checkUpdate() {
         try {
