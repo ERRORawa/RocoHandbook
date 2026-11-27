@@ -24,6 +24,7 @@ var json = {
         "type": ["草"],
         "bg": 1,
         "fruit": ["0002"],
+        "diff": 1,
         "class": [
             ["1"],
             ["2"],
@@ -36,6 +37,7 @@ var json = {
         "reverse": true,
         "bg": 1,
         "fruit": ["0002"],
+        "diff": 1,
         "class": [
             ["1"],
             ["2"],
@@ -48,6 +50,7 @@ var json = {
         "reverse": true,
         "bg": 1,
         "fruit": ["0002"],
+        "diff": 1,
         "lead": 2,
         "class": [
             ["1"],
@@ -68,6 +71,7 @@ var json = {
         "type": ["火"],
         "bg": 2,
         "fruit": ["0005"],
+        "diff": 1,
         "class": [
             ["1"],
             ["2"],
@@ -80,6 +84,7 @@ var json = {
         "reverse": true,
         "bg": 2,
         "fruit": ["0005"],
+        "diff": 1,
         "class": [
             ["1"],
             ["2"],
@@ -91,6 +96,7 @@ var json = {
         "type": ["火"],
         "bg": 2,
         "fruit": ["0005"],
+        "diff": 1,
         "lead": true,
         "class": [
             ["1"],
@@ -111,6 +117,7 @@ var json = {
         "type": ["水"],
         "bg": 3,
         "fruit": ["0008"],
+        "diff": 1,
         "class": [
             ["1"],
             ["2"],
@@ -122,6 +129,7 @@ var json = {
         "type": ["水"],
         "bg": 3,
         "fruit": ["0008"],
+        "diff": 1,
         "class": [
             ["1"],
             ["2"],
@@ -133,6 +141,7 @@ var json = {
         "type": ["水"],
         "bg": 3,
         "fruit": ["0008"],
+        "diff": 1,
         "lead": true,
         "class": [
             ["1"],
